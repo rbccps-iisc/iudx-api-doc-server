@@ -111,17 +111,18 @@ function get_response_table(__response_codes){
 	return str+`</tbody></table></div>`
 }
 
-function get_api_desc_html(__name, __title, __method, __endpoint, __desc, __tutorial_link, __parameters, __response_codes, __example_codes, __index){
+function get_api_desc_html(__index, __name, __title, __method, __endpoint, __desc, __tutorial_link, __parameters, __response_codes, __example_codes, __index){
 	return `<div id="`+ __name +`-` + __index + `"  class="section-block">
+            <h3 class="block-title">`+ (__index+1) +`. `+__title+`</h3>
+            <p>`+ __desc +`</p>
             <button href="#" class="btn btn-`+ get_api_method_color(__method) +`">`+ __method +`</button>
             <span class="code-block">
                 <code>`+__endpoint+`</code>
             </span><!--//code-block-->
-            <h3 class="block-title">`+__title+`</h3>
-            <p>`+ __desc +`</p>
+            <br><br>
             <h6>Parameters</h6>
             `+ get_parameter_table(__parameters) +`
-            <h6>Responses</h6>
+            <br><h6>Responses</h6>
             `+ get_response_table(__response_codes) +`
             <div class="section-block">
             <div class="row">
@@ -145,7 +146,7 @@ function get_Sub_Menu_API_Item_Desc_HTML(__apis, __name){
 	// console.log(__apis)
 	var str=""
 	for(var i=0; i < __apis.length; i++){
-		str+=get_api_desc_html(__name,__apis[i]['api']['title']
+		str+=get_api_desc_html(i, __name,__apis[i]['api']['title']
 								,__apis[i]['api']['method']
 								,__apis[i]['api']['endpoint']
 								,__apis[i]['api']['api-desc']

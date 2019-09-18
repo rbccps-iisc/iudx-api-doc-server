@@ -36,13 +36,13 @@ function get_highlighted_code(code, lang){
 		return Prism.highlight(code, Prism.languages.javascript, lang);
 	}
 }
-const port = 19443
+
 const last_updated_time_json_file="last_updated_time.json"
 
 //Status codes
 const __HTTP_200_OK__ = 200
 
-app.use(express.static('public'))
+app.use('/static', express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.set('views', __dirname + '/views');
@@ -83,4 +83,5 @@ var last_updated_time={"last_update_time": moment().format()};
 fs.writeFile(last_updated_time_json_file, JSON.stringify(last_updated_time));
 
 log("yellow","Running test server...")
+const port = 19443
 app.listen(port, () => console.log(`Server is listening on port ${port}!`))
