@@ -43,8 +43,8 @@ const last_updated_time_json_file="last_updated_time.json"
 const __HTTP_200_OK__ = 200
 
 app.use(express.static('public'))
-// app.use(express.json())
-// app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 app.set('views', __dirname + '/views');
 app.engine('html', engine.mustache);
 app.set('view engine', 'html');
@@ -63,7 +63,6 @@ app.get('/internal_apis/get_last_updated_time', (req, res) => {
 });
 
 app.post('/get-api-example', (req, res) => {
-	req.body.lang
 	fs.readFile("./"+req.body.code_url, "utf8", function (err, data) {
 		if (err) throw err;
 	  // console.log(data);
