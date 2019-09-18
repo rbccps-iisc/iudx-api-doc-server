@@ -6,6 +6,8 @@ This tool will use yaml files to generate API Docs for IUDX entities like Catalo
 
 # Setup
 ```bash
+git clone https://github.com/rbccps-iisc/iudx-api-doc-server
+cd iudx-api-doc-server
 npm install
 ```
 ## Development Server
