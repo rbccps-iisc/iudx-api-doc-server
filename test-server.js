@@ -38,9 +38,11 @@ function get_highlighted_code(code, lang){
 }
 
 const last_updated_time_json_file="last_updated_time.json"
+const IUDX_ENTITIES = ['cat', 'auth', 'rs']
 
 //Status codes
-const __HTTP_200_OK__ = 200
+const __HTTP_200__ = {'code':200, 'msg': 'Success!!!'}
+const __HTTP_404__ = {'code':404, 'msg': '404! Not found!!!'}
 
 app.use('/static', express.static('public'))
 app.use(express.json())
@@ -51,29 +53,38 @@ app.set('view engine', 'html');
 
 //Routes
 app.get('/', (req, res) => {
-    res.status(__HTTP_200_OK__).sendFile('public/index.html', {root: __dirname })
+    res.status(__HTTP_200__['code']).sendFile('public/index.html', {root: __dirname })
 })
 
 app.get('/:iudxEntity', (req, res) => {
-	res.status(__HTTP_200_OK__).render(__dirname + "/views/index.html", {iudx_entity:req.params.iudxEntity})
+	if(IUDX_ENTITIES.includes(req.params.iudxEntity)){
+		res.status(__HTTP_200__['code']).render(__dirname + "/views/index.html", {iudx_entity:req.params.iudxEntity})
+	}else{
+		res.status(__HTTP_404__['code']).send(__HTTP_404__['msg']);
+	}
 })
 
 app.get('/internal_apis/get_last_updated_time', (req, res) => {
-    res.status(__HTTP_200_OK__).sendFile(last_updated_time_json_file, {root: __dirname })
+    res.status(__HTTP_200__['code']).sendFile(last_updated_time_json_file, {root: __dirname })
 });
 
 app.post('/get-api-example', (req, res) => {
 	fs.readFile("./"+req.body.code_url, "utf8", function (err, data) {
 		if (err) throw err;
 	  // console.log(data);
-      res.status(__HTTP_200_OK__).send(get_highlighted_code(data, req.body.lang))
+      res.status(__HTTP_200__['code']).send(get_highlighted_code(data, req.body.lang))
 	});
 });
 
 app.get('/internal_apis/get_yaml/:iudxEntity', (req, res) => {
 	const doc_yaml_file = fs.readFileSync('yaml/'+req.params.iudxEntity+'.yaml', 'utf8')
 	let doc_yaml = YAML.parse(doc_yaml_file);
-    res.status(__HTTP_200_OK__).send(doc_yaml);
+    res.status(__HTTP_200__['code']).send(doc_yaml);
+});
+
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function(req, res){
+	res.status(__HTTP_404__['code']).send(__HTTP_404__['msg']);
 });
 
 
