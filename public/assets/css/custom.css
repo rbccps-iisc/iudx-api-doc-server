@@ -1,0 +1,21 @@
+#iudx_entity{
+	display: none !important;
+}
+
+pre{
+	font-size: 15px !important;
+}
+
+.footer{
+	height: 70px !important;
+}
+
+.full-width{
+	width: 100% !important;
+	margin: none !important;
+	padding: none !important;
+}
+
+.mg{
+	margin: 5px;
+}

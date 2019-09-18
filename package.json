@@ -1,0 +1,35 @@
+{
+  "name": "iudx-api-doc-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodejs test-server.js",
+    "start": "nodejs server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbccps-iisc/iudx-api-doc-server.git"
+  },
+  "keywords": [
+    "IUDX",
+    "API",
+    "Doc"
+  ],
+  "author": "Jishnu Jaykumar P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbccps-iisc/iudx-api-doc-server/issues"
+  },
+  "homepage": "https://github.com/rbccps-iisc/iudx-api-doc-server#readme",
+  "dependencies": {
+    "consolidate": "^0.15.1",
+    "express": "^4.17.1",
+    "http": "0.0.0",
+    "moment": "^2.24.0",
+    "mustache": "^3.1.0",
+    "node-color-log": "^2.2.0",
+    "prismjs": "^1.17.1",
+    "yaml": "^1.6.0"
+  }
+}
