@@ -95,6 +95,6 @@ app.get('*', function(req, res){
 var last_updated_time={"last_update_time": moment().format()};
 fs.writeFile(last_updated_time_json_file, JSON.stringify(last_updated_time));
 
-log("yellow","Running production server...")
+log("green","Running production server...")
 const port = 9443
 app.listen(port, () => console.log(`Server is listening on port ${port}!`))
