@@ -37,6 +37,10 @@ function get_highlighted_code(code, lang){
 	}
 }
 
+function send404(res){
+	res.status(__HTTP_404__['code']).sendFile('public/404.html', {root: __dirname });
+}
+
 const last_updated_time_json_file="last_updated_time.json"
 const IUDX_ENTITIES = ['cat', 'auth', 'rs']
 
@@ -53,14 +57,14 @@ app.set('view engine', 'html');
 
 //Routes
 app.get('/', (req, res) => {
-    res.status(__HTTP_200__['code']).sendFile('public/index.html', {root: __dirname })
+    res.status(__HTTP_200__['code']).sendFile('public/home.html', {root: __dirname })
 })
 
 app.get('/:iudxEntity', (req, res) => {
 	if(IUDX_ENTITIES.includes(req.params.iudxEntity)){
 		res.status(__HTTP_200__['code']).render(__dirname + "/views/index.html", {iudx_entity:req.params.iudxEntity})
 	}else{
-		res.status(__HTTP_404__['code']).send(__HTTP_404__['msg']);
+		send404(res);
 	}
 })
 
@@ -84,10 +88,8 @@ app.get('/internal_apis/get_yaml/:iudxEntity', (req, res) => {
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function(req, res){
-	res.status(__HTTP_404__['code']).send(__HTTP_404__['msg']);
+	send404(res);
 });
-
-
 
 // For getting last updated time, i.e. server restart time
 var last_updated_time={"last_update_time": moment().format()};
