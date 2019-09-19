@@ -73,6 +73,14 @@ function get_example_code_section(__title, __example_codes){
       `;
 }
 
+function get_button(__bool){
+	if(!__bool || __bool == undefined){
+		return `<button class="btn btn-green">Yes</button>`
+	}else{
+		return `<button class="btn btn-red">No</button>`
+	}
+}
+
 function get_parameter_table(__parameters){
 	var str = `<div class="table-responsive">
                                         <table class="table table-bordered">
@@ -80,12 +88,13 @@ function get_parameter_table(__parameters){
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Description</th>
+                                                    <th>Required</th>
                                                 </tr>
                                             </thead>
                                             <tbody>`
 
     for (var i =0; i < __parameters.length; i++){
-    	str+=`<tr><th scope="row">`+__parameters[i]['parameter']['name']+`</th><td>`+__parameters[i]['parameter']['desc']+`</td></tr>`
+    	str+=`<tr><th scope="row">`+__parameters[i]['parameter']['name']+`</th><td>`+__parameters[i]['parameter']['desc']+`</td>`+`</th><td>`+get_button(__parameters[i]['parameter']['optional'])+`</td></tr>`
     }
 
 
@@ -111,7 +120,7 @@ function get_response_table(__response_codes){
 	return str+`</tbody></table></div>`
 }
 
-function get_api_desc_html(__index, __name, __title, __method, __endpoint, __desc, __tutorial_link, __parameters, __response_codes, __example_codes, __index){
+function get_api_desc_html(__index, __name, __title, __method, __endpoint, __desc, __tutorial_link, __parameters, __response_codes, __req_CT, __res_CT, __example_codes, __index){
 	return `<div id="`+ __name +`-` + __index + `"  class="section-block">
             <h3 class="block-title">`+ (__index+1) +`. `+__title+`</h3>
             <p>`+ __desc +`</p>
@@ -120,9 +129,9 @@ function get_api_desc_html(__index, __name, __title, __method, __endpoint, __des
                 <code>`+__endpoint+`</code>
             </span><!--//code-block-->
             <br><br>
-            <h6>Parameters</h6>
+            <b style="color:#ff7f50">Parameters</b> | ContentType: <code>`+__req_CT+`</code><br><br>
             `+ get_parameter_table(__parameters) +`
-            <br><h6>Responses</h6>
+            <br><b style="color: #1abc9c">Responses</b> | ContentType: <code>`+__res_CT+`</code><br><br>
             `+ get_response_table(__response_codes) +`
             <div class="section-block">
             <div class="row">
@@ -153,6 +162,8 @@ function get_Sub_Menu_API_Item_Desc_HTML(__apis, __name){
 								,__apis[i]['api']['tutorial-link']
 								,__apis[i]['api']['parameters']
 								,__apis[i]['api']['responses']
+								,__apis[i]['api']['request-content-type']
+								,__apis[i]['api']['response-content-type']
 								,__apis[i]['api']['examples']
 								,i);
 	}

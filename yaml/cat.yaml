@@ -16,13 +16,17 @@ api-categories:
             endpoint: "/catalogue/v1/search"
             method: "GET"
             api-desc: "Search API"
+            request-content-type: "application/json"
             parameters: 
               - parameter:
                   name: "P1"
                   desc: "desc"
+                  optional: true
               - parameter:
                   name: "P2"
                   desc: "desc"
+                  optional: false
+            response-content-type: "application/json"
             responses: 
               - response:
                   code: 200
@@ -43,13 +47,17 @@ api-categories:
             endpoint: "/catalogue/v1/search"
             method: "POST"
             api-desc: "Search API"
+            request-content-type: "application/json"
             parameters: 
               - parameter:
                   name: "P1"
                   desc: "desc"
+                  # optional: true
               - parameter:
                   name: "P2"
                   desc: "desc"
+                  optional: false
+            response-content-type: "application/json"
             responses: 
               - response:
                   code: 200
@@ -75,13 +83,17 @@ api-categories:
             endpoint: "/catalogue/v1/count"
             method: "POST"
             api-desc: "count API"
+            request-content-type: "application/json"
             parameters: 
               - parameter:
                   name: "P1"
                   desc: "desc"
+                  optional: true
               - parameter:
                   name: "P2"
                   desc: "desc"
+                  optional: false
+            response-content-type: "application/json"
             responses: 
               - response:
                   code: 200
@@ -106,17 +118,21 @@ api-categories:
             endpoint: " /items/{item-type}"
             method: "POST"
             api-desc: "Creates an item of type item-type in catalogue"
+            request-content-type: "application/json"
             parameters: 
               - parameter:
-                  name: "item-type"
-                  desc: "some item"
+                  name: "P1"
+                  desc: "desc"
+                  optional: true
               - parameter:
                   name: "P2"
                   desc: "desc"
+                  optional: false
+            response-content-type: "application/json"
             responses: 
               - response:
-                  code: 201
-                  desc: "Created"
+                  code: 200
+                  desc: "Success"
               - response:
                   code: 404
                   desc: "Not found"
