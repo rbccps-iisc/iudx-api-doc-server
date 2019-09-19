@@ -81,6 +81,16 @@ function get_button(__bool){
 	}
 }
 
+function get_type(__parameter_type){
+	if(__parameter_type == "header"){
+		return `<button class="btn type-header">Header</button>`
+	}else if(__parameter_type == "body"){
+		return `<button class="btn type-body">Body</button>`
+	}else if(__parameter_type == "query"){
+		return `<button class="btn type-query">Query</button>`
+	}
+}
+
 function get_parameter_table(__parameters){
 	var str = `<div class="table-responsive">
                                         <table class="table table-bordered">
@@ -89,12 +99,17 @@ function get_parameter_table(__parameters){
                                                     <th>Name</th>
                                                     <th>Description</th>
                                                     <th>Required</th>
+                                                    <th>Type</th>
                                                 </tr>
                                             </thead>
                                             <tbody>`
 
     for (var i =0; i < __parameters.length; i++){
-    	str+=`<tr><th scope="row">`+__parameters[i]['parameter']['name']+`</th><td>`+__parameters[i]['parameter']['desc']+`</td>`+`</th><td>`+get_button(__parameters[i]['parameter']['optional'])+`</td></tr>`
+    	str+=`<tr>
+    	<th scope="row">`+__parameters[i]['parameter']['name']+`</th>
+    	<td>`+__parameters[i]['parameter']['desc']+`</td>`+`</th>
+    	<td>`+get_button(__parameters[i]['parameter']['optional'])+`</td>`+`</th>
+    	<td>`+get_type(__parameters[i]['parameter']['type'])+`</td></tr>`
     }
 
 
@@ -129,7 +144,7 @@ function get_api_desc_html(__index, __name, __title, __method, __endpoint, __des
                 <code>`+__endpoint+`</code>
             </span><!--//code-block-->
             <br><br>
-            <b style="color:#ff7f50">Parameters</b> | ContentType: <code>`+__req_CT+`</code><br><br>
+            <b style="color:#ff7f50">Parameters</b> <!--| ContentType: <code>`+__req_CT+`</code> --><br><br>
             `+ get_parameter_table(__parameters) +`
             <br><b style="color: #1abc9c">Responses</b> | ContentType: <code>`+__res_CT+`</code><br><br>
             `+ get_response_table(__response_codes) +`

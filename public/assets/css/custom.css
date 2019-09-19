@@ -1,3 +1,18 @@
+.type-header{
+	background-color: #ff9f1a !important;
+	color: white !important;
+}
+
+.type-body{
+	background-color: #8e44ad !important;
+	color: white !important;
+}
+
+.type-query{
+	background-color: #3498db !important;
+	color: white !important;
+}
+
 #iudx_entity{
 	display: none !important;
 }
