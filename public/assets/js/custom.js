@@ -135,6 +135,13 @@ function get_response_table(__response_codes){
 	return str+`</tbody></table></div>`
 }
 
+function get_video_tutorial_content(__tutorial_link){
+	return `<!-- 16:9 aspect ratio -->
+	    	<div class="embed-responsive embed-responsive-16by9">
+	        	<iframe class="embed-responsive-item" src="`+__tutorial_link+`" frameborder="0" allowfullscreen=""></iframe>
+	    	</div>`
+}
+
 function get_api_desc_html(__index, __name, __title, __method, __endpoint, __desc, __tutorial_link, __parameters, __response_codes, __req_CT, __res_CT, __example_codes, __index){
 	return `<div id="`+ __name +`-` + __index + `"  class="section-block">
             <h3 class="block-title">`+ (__index+1) +`. `+__title+`</h3>
@@ -149,16 +156,12 @@ function get_api_desc_html(__index, __name, __title, __method, __endpoint, __des
             <br><b style="color: #1abc9c">Responses</b> | ContentType: <code>`+__res_CT+`</code><br><br>
             `+ get_response_table(__response_codes) +`
             <div class="section-block">
-            <div class="row">
-                <div class="col-md-12 col-12">
-                    <h6>Video Tutorial</h6>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="`+__tutorial_link+`" frameborder="0" allowfullscreen=""></iframe>
-                    </div>
+		    	<h6>Video Tutorial</h6>
+	            <div class="col-md-12 col-12">
+	            <div class="row">`+((__tutorial_link == '' || __tutorial_link == undefined) ? '<b style="color: #27ae60">No video link found. Don\'t worry. Coming Soon...</b>' : get_video_tutorial_content(__tutorial_link))+`
+	            </div>
+            </div><!--//row-->
             </div>
-                                </div><!--//row-->
-                                </div>
             <div class="code-block">
                 <h6>Code example:</h6>
                 `+ get_example_code_section(__title,__example_codes) +`

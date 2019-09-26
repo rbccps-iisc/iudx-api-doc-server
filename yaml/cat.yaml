@@ -41,7 +41,7 @@ api-categories:
               - response:
                   code: 404
                   desc: "Not found"
-            tutorial-link: "https://www.youtube.com/embed/Jh4JRo2RYmo"
+            tutorial-link: ""
             examples:
               - example:
                   lang: "Java"
