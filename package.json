@@ -25,10 +25,11 @@
   "dependencies": {
     "consolidate": "^0.15.1",
     "express": "^4.17.1",
-    "http": "0.0.0",
+    "https": "^1.0.0",
     "moment": "^2.24.0",
     "mustache": "^3.1.0",
     "node-color-log": "^2.2.0",
+    "pemtools": "^0.4.7",
     "prismjs": "^1.17.1",
     "yaml": "^1.6.0"
   }
