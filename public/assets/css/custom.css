@@ -20,7 +20,9 @@
 
 .doc-menu{
 	position: sticky !important;
-	height: 100vh !important;
+	height: -webkit-calc(80vh - 108px);
+    height:    -moz-calc(80vh - 108px);
+    height:         calc(80vh - 108px);
 	overflow-y: scroll !important;
 }
 
