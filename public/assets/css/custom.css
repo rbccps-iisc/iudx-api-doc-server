@@ -5,7 +5,7 @@
 	height: -webkit-calc(80vh - 108px) !important;
     height:    -moz-calc(80vh - 108px) !important;
     height:         calc(80vh - 108px) !important;
-	overflow-y: scroll !important;
+	overflow-y: auto !important;
 }
 
 .type-path{
