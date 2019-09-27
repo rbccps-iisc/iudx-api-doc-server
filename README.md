@@ -17,12 +17,12 @@ npm install
 ```bash
 npm test
 ```
-The server will be listening at **https://localhost:19443**
+The server will be listening at **https://localhost:11443**
 ## Production Server
 ```bash
 npm start
 ```
-The server will be listening at **https://localhost:9443**
+The server will be listening at **https://localhost**
 
 ## Author
 [Jishnu P](https://jishnujayakumar.github.io)

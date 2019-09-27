@@ -105,7 +105,7 @@ var last_updated_time={"last_update_time": moment().format()};
 fs.writeFileSync(last_updated_time_json_file, JSON.stringify(last_updated_time), 'utf8');
 
 log("yellow","Running test server...")
-const port = 19443
+const port = 11443
 var server = https.createServer(opts, app);
 server.listen(port, function(){
         console.log(`Server is listening on port ${port}!`)
