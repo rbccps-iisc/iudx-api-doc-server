@@ -102,7 +102,7 @@ app.get('*', function(req, res){
 
 // For getting last updated time, i.e. server restart time
 var last_updated_time={"last_update_time": moment().format()};
-fs.writeFile(last_updated_time_json_file, JSON.stringify(last_updated_time));
+fs.writeFileSync(last_updated_time_json_file, JSON.stringify(last_updated_time), 'utf8');
 
 log("green","Running production server...")
 const port = 9443
