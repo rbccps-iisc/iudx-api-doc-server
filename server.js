@@ -2,10 +2,19 @@ const logger = require('node-color-log');
 const engine = require('consolidate');
 const express = require('express')
 const moment = require('moment');
+const https = require('https')
 const YAML = require('yaml')
-const http = require('http')
 const fs = require('fs');
 const app = express()
+
+
+var pemtools = require('pemtools')
+const opts = { key: fs.readFileSync('./cert/key.pem')
+             , cert: fs.readFileSync('./cert/server.pem')
+             // , requestCert: true
+             // , rejectUnauthorized: false
+             // , ca: [ fs.readFileSync('./cert/ca.crt') ]
+             }
 
 // https://prismjs.com/
 const prism = require('prismjs');
@@ -98,3 +107,7 @@ fs.writeFile(last_updated_time_json_file, JSON.stringify(last_updated_time));
 log("green","Running production server...")
 const port = 9443
 app.listen(port, () => console.log(`Server is listening on port ${port}!`))
+var server = https.createServer(opts, app);
+server.listen(port, function(){
+        console.log(`Server is listening on port ${port}!`)
+});
