@@ -1,4 +1,4 @@
 last_updated_time.json
 node_modules/
-server.pem
+key.pem
 *.crt
