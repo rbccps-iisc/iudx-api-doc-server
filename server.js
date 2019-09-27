@@ -106,7 +106,6 @@ fs.writeFileSync(last_updated_time_json_file, JSON.stringify(last_updated_time),
 
 log("green","Running production server...")
 const port = 9443
-app.listen(port, () => console.log(`Server is listening on port ${port}!`))
 var server = https.createServer(opts, app);
 server.listen(port, function(){
         console.log(`Server is listening on port ${port}!`)
