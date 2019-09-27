@@ -96,7 +96,8 @@ function get_parameter_table(__parameters){
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
+                                                    <th>Key</th>
+                                                    <th>Value</th>
                                                     <th>Description</th>
                                                     <th>Required</th>
                                                     <th>Type</th>
@@ -106,7 +107,8 @@ function get_parameter_table(__parameters){
 
     for (var i =0; i < __parameters.length; i++){
     	str+=`<tr>
-    	<th scope="row">`+__parameters[i]['parameter']['name']+`</th>
+    	<th scope="row">`+__parameters[i]['parameter']['key']+`</th>
+    	<th scope="row">`+__parameters[i]['parameter']['value']+`</th>
     	<td>`+__parameters[i]['parameter']['desc']+`</td>`+`</th>
     	<td>`+get_button(__parameters[i]['parameter']['optional'])+`</td>`+`</th>
     	<td>`+get_type(__parameters[i]['parameter']['type'])+`</td></tr>`
