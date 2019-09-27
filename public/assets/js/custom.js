@@ -88,6 +88,8 @@ function get_type(__parameter_type){
 		return `<button class="btn type-body">Body</button>`
 	}else if(__parameter_type == "query"){
 		return `<button class="btn type-query">Query</button>`
+	}else if(__parameter_type == "path"){
+		return `<button class="btn type-path">Path</button>`
 	}
 }
 

@@ -1,29 +1,16 @@
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #1dd1a1; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: grey; 
-}
-
-.doc-menu{
-	position: sticky !important;
-	height: -webkit-calc(80vh - 108px);
-    height:    -moz-calc(80vh - 108px);
-    height:         calc(80vh - 108px);
+#doc-menu{
+	position: -webkit-sticky;  /*Safari */
+	position: sticky;
+	top: 0;
+	height: -webkit-calc(80vh - 108px) !important;
+    height:    -moz-calc(80vh - 108px) !important;
+    height:         calc(80vh - 108px) !important;
 	overflow-y: scroll !important;
+}
+
+.type-path{
+	background-color: #f39c12 !important;
+	color: white !important;
 }
 
 .type-header{

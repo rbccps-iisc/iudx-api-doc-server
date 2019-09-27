@@ -537,8 +537,6 @@ api-categories:
               - example:
                   lang: "Javascript"
                   file: "api-examples/s/search.js"
-
-
         - api:
             title: "Spatial - (Polygon)"
             endpoint: "/resource-server/{resource-server-id}/v1/count"
@@ -635,7 +633,6 @@ api-categories:
               - example:
                   lang: "Javascript"
                   file: "api-examples/s/search.js"
-
   - category: 
      name: "Subscription"
      desc: "A subscription operation allows applications to register, update and deregister interest for data access as a stream or as a callback. A subscription must have either a duration or a limit, where duration is the subscription period (in number of days) and limit specifies the total number of messages subscribed."
@@ -889,12 +886,10 @@ api-categories:
                   name: "type"
                   desc: "some item"
                   type: "body"
-
               - parameter:
                   name: "duration"
                   desc: "desc"
                   type: "body"
-
               - parameter:
                   name: "id"
                   desc: "some item"
@@ -914,7 +909,6 @@ api-categories:
               - example:
                   lang: "Javascript"
                   file: "api-examples/search.js"
-
         - api:
             title: "Play Archive Stream"
             endpoint: "/resource-server/{resource-server-id}/v1/media"
@@ -958,7 +952,6 @@ api-categories:
               - example:
                   lang: "Javascript"
                   file: "api-examples/search.js"
-
         - api:
             title: "Download Archive Stream"
             endpoint: "/resource-server/{resource-server-id}/v1/media"
@@ -977,12 +970,10 @@ api-categories:
                   name: "time"
                   desc: "desc"
                   type: "body"
-
               - parameter:
                   name: "TRelation"
                   desc: "desc"
                   type: "body"
-
               - parameter:
                   name: "id"
                   desc: "some item"
@@ -1002,7 +993,6 @@ api-categories:
               - example:
                   lang: "Javascript"
                   file: "api-examples/search.js"
-
   - category: 
      name: "Download"
      desc: "Download end-point allows applications to download a file."
