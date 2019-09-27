@@ -1,3 +1,29 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1dd1a1; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey; 
+}
+
+.doc-menu{
+	position: sticky !important;
+	height: 100vh !important;
+	overflow-y: scroll !important;
+}
+
 .type-header{
 	background-color: #ff9f1a !important;
 	color: white !important;

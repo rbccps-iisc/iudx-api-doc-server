@@ -160,7 +160,7 @@ function get_api_desc_html(__index, __name, __title, __method, __endpoint, __des
             <div class="section-block">
 		    	<h6>Video Tutorial</h6>
 	            <div class="col-md-12 col-12">
-	            <div class="row">`+((__tutorial_link == '' || __tutorial_link == undefined) ? '<b style="color: #27ae60">No video link found. Don\'t worry. Coming Soon...</b>' : get_video_tutorial_content(__tutorial_link))+`
+	            <div class="row">`+((__tutorial_link == '' || __tutorial_link == undefined) ? '<b style="color: #27ae60">No video link found. Don\'t worry. We are working on it...</b>' : get_video_tutorial_content(__tutorial_link))+`
 	            </div>
             </div><!--//row-->
             </div>
