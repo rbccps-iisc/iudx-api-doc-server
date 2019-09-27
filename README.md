@@ -11,8 +11,7 @@ cd iudx-api-doc-server
 npm install
 ```
 
-## NOTE
-Place server certificate and key in **cert/** directory for enabling https.
+#### NOTE: Place the server certificate and key in **cert/** directory for enabling https connection. Name the certificate as server.pem and key as key.pem. This nomenclature is necessary.
 
 ## Development Server
 ```bash
