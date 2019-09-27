@@ -19,17 +19,20 @@ api-categories:
             
             parameters: 
               - parameter:
-                  name: "P1"
+                  key: "P1"
+                  value: "value"
                   desc: "desc"
                   optional: true
                   type: "header"
               - parameter:
-                  name: "P2"
+                  key: "P2"
+                  value: "value"
                   desc: "desc"
                   optional: false\
                   type: "body"
               - parameter:
-                  name: "P2"
+                  key: "P2"
+                  value: "value"
                   desc: "desc"
                   optional: false\
                   type: "query"
@@ -57,12 +60,14 @@ api-categories:
             
             parameters: 
               - parameter:
-                  name: "P1"
+                  key: "P1"
+                  value: "value"
                   desc: "desc"
                   type: "query"
                   # optional: true
               - parameter:
-                  name: "P2"
+                  key: "P2"
+                  value: "value"
                   desc: "desc"
                   type: "query"
                   optional: false
@@ -95,12 +100,14 @@ api-categories:
             
             parameters: 
               - parameter:
-                  name: "P1"
+                  key: "P1"
+                  value: "value"
                   desc: "desc"
                   optional: true
                   type: "query"
               - parameter:
-                  name: "P2"
+                  key: "P2"
+                  value: "value"
                   desc: "desc"
                   optional: false
                   type: "query"
@@ -132,12 +139,14 @@ api-categories:
             
             parameters: 
               - parameter:
-                  name: "P1"
+                  key: "P1"
+                  value: "value"
                   desc: "desc"
                   optional: true
                   type: "query"
               - parameter:
-                  name: "P2"
+                  key: "P2"
+                  value: "value"
                   desc: "desc"
                   optional: false
                   type: "query"
