@@ -1,0 +1,611 @@
+title: "Catalogue Server API-Doc"
+categories:
+  - category:
+      name: "IUDX Catalogue Server Interface"
+      desc: "The information resource catalogue contains the meta-data of resources along with auxiliary descriptions, API endpoints, data models and other meta-information like discovery hints, location details, providers etc. A useful analogy is an online shopping catalogue, where a consumer can browse through the available products and then decide to purchase a subscription. The resource catalogue plays a similar role for the consumer applications in the context of smart city data resources. <br> <br> Authentication and Authorization for the catalogue interface is achieved through the use of client side certificates, issued by the IUDX Certificate Authority. This is required only for some of the APIs where there is an explicit mention. Furthermore, the APIs that do require the client side certificates for authentication and authorization, also require the certificates to belong to class 3 of the IUDX certificate classes. Any API that requires this kind of authentication and authorization mechanism will mention “IUDX certificate - class 3” in their access mechanism."
+api-categories: 
+  - category: 
+     name: "Items"
+     desc: "Any entry in the catalogue is an item. An item can be of multiple item-types as mentioned in the IUDX Reference Architecture document. The list of different itemTypes (referred to as ‘item-types’ in the context of APIs) and details for each can be found in Section 3.4.1 of the IUDX Reference Architecture document."
+     apis:
+        - api:
+            title: "Create Item"
+            endpoint: "/catalogue/v1/items"
+            method: "POST"
+            api-desc: "Creates an item of type item-type in catalogue"
+            parameters: 
+              - parameter:
+                  key: "type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "item"
+                  value: "catalogue item"
+                  desc: "Item to be uploaded to the catalogue as JSON-LD document"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+        - api:
+            title: "Update Item"
+            endpoint: "/catalogue/v1/items/{id}"
+            method: "PUT"
+            api-desc: "Creates an item of type item-type in catalogue"
+            parameters: 
+              - parameter:
+                  key: "id"
+                  value: "catalogue item id"
+                  desc: "ID of the item in the catalogue."
+                  type: "path"
+
+              - parameter:
+                  key: "item"
+                  value: "catalogue item"
+                  desc: "Update an existing item of an item-type in the catalogue."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "Delete Item"
+            endpoint: "/catalogue/v1/items/{id}"
+            method: "DELETE"
+            api-desc: "Delete a registered item in catalogue."
+            parameters: 
+              - parameter:
+                  key: "id"
+                  value: "catalogue item id"
+                  desc: "Update an existing item of an item-type in the catalogue."
+                  type: "path"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 204
+                  desc: "No Content"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "Retrieve Item"
+            endpoint: "/catalogue/v1/items/{id}"
+            method: "GET"
+            api-desc: "Read or Retrieve an item using an item-id in catalogue."
+            parameters: 
+              - parameter:
+                  key: "id"
+                  value: "catalogue item id"
+                  desc: "Retrieves an item of type item-type in catalogue"
+                  type: "path"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "No Content"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+  - category: 
+     name: "Search"
+     desc: "A search operation allows applications to discover items in the catalogue using complex queries and filters. <br> Catalogue allows ‘attribute’, ‘text’ and ‘geo’ search functionalities. This should be used with the ‘search-type’ query parameter to perform a specific type of search. <ul> <li> Attribute search can find items that match a specific ‘attribute’ query. For example, to find items with ‘tags’=’water’, where ‘tags’ is a known attribute. This is typically expected to be used when certain attributes are known to be present in items. </li> <li> Text search can find items that match a given string in some part of a catalogue item. </li> <li> Geo search can find items that is within a given geographical boundary. </li> </ul>"
+     apis:
+        - api:
+            title: "List Item Types"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "Lists all the ‘item-types’ in the catalogue"
+            parameters: 
+              - parameter:
+                  key: "type"
+                  value: "item-types"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "List Items of an Item Type"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "Lists all the items of a particular ‘item-type’ in the catalogue"
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+
+        - api:
+            title: "Attribute Search"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "An attribute search allows applications to perform search on items for an exact match on attributes. Searches the catalogue for the given attribute query. In case the ‘attribute-value’ is an array the query returns all items with ‘attribute-name’ matching ‘ANY’ of the values specified in the ‘attribute-value’ array."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Name of the attribute in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-value"
+                  value: "name"
+                  desc: "Value of the attribute in the catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "Spatial Search - (Circle)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+
+        - api:
+            title: "Spatial Search - (Polygon)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "geometry"
+                  value: "polygon(p1,p2,p3,p4,p1)"
+                  desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+        - api:
+            title: "Spatial Search - (Bounding Box)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "bbox"
+                  value: "x1,y1,x2,y2"
+                  desc: "A bounding box is expressed to be used as a spatial predicate."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+
+        - api:
+            title: "Text Search"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "A text search query allows one to search through the catalogue items for a given text string."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "q"
+                  value: "text to search"
+                  desc: "Can be any free form text query to search the catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "Response Filter"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "Filter acts as the API Presentation layer for applications. Applications can use filters to decide the attributes that needs to be responded for a search query."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+  - category: 
+     name: "Count"
+     desc: "A count operation allows applications to discover the number of items in the catalogue using complex queries and filters. <br> Catalogue allows ‘attribute’, ‘text’ and ‘geo’ search functionalities. This should be used with the ‘search-type’ query parameter to perform a specific type of search. <ul> <li> Attribute search can find items that match a specific ‘attribute’ query. For example, to find items with ‘tags’=’water’, where ‘tags’ is a known attribute. This is typically expected to be used when certain attributes are known to be present in items. </li> <li> Text search can find items that match a given string in some part of a catalogue item. </li> <li> Geo search can find items that is within a given geographical boundary. </li> </ul>"
+     apis:
+        - api:
+            title: "Count Items of an Item Type"
+            endpoint: "/catalogue/v1/count"
+            method: "GET"
+            api-desc: "Lists all the items of a particular ‘item-type’ in the catalogue"
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "Count using Attribute Search"
+            endpoint: "/catalogue/v1/count"
+            method: "GET"
+            api-desc: "A count on attribute search allows applications to perform search on items for an exact match on attributes. Searches the catalogue for the given attribute query. In case the ‘attribute-value’ is an array the query returns all items with ‘attribute-name’ matching ‘ANY’ of the values specified in the ‘attribute-value’ array."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Name of the attribute in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-value"
+                  value: "name"
+                  desc: "Value of the attribute in the catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+        - api:
+            title: "Count using Spatial Search - (Circle)"
+            endpoint: "/catalogue/v1/count"
+            method: "GET"
+            api-desc: "A geo count allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+
+        - api:
+            title: "Count using Spatial Search - (Polygon)"
+            endpoint: "/catalogue/v1/count"
+            method: "GET"
+            api-desc: "A geo count allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "geometry"
+                  value: "polygon(p1,p2,p3,p4,p1)"
+                  desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+        - api:
+            title: "Count using Spatial Search - (Bounding Box)"
+            endpoint: "/catalogue/v1/count"
+            method: "GET"
+            api-desc: "A geo count allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "bbox"
+                  value: "x1,y1,x2,y2"
+                  desc: "A bounding box is expressed to be used as a spatial predicate."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/s/search.js"
+
+        - api:
+            title: "Text Search"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "A count on a text search query allows one to search through the catalogue items for a given text string."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "q"
+                  value: "text to search"
+                  desc: "Can be any free form text query to search the catalogue."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+
+
