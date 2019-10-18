@@ -9,8 +9,8 @@ const app = express()
 
 
 var pemtools = require('pemtools')
-const opts = { key: fs.readFileSync('./cert/key.pem')
-             , cert: fs.readFileSync('./cert/server.pem')
+const opts = { key: fs.readFileSync('key.pem')
+             , cert: fs.readFileSync('cert.pem'), passphrase: 'password'
              // , requestCert: true
              // , rejectUnauthorized: false
              // , ca: [ fs.readFileSync('./cert/ca.crt') ]
@@ -19,7 +19,7 @@ const opts = { key: fs.readFileSync('./cert/key.pem')
 // https://prismjs.com/
 const prism = require('prismjs');
 const loadComponents = require('prismjs/components/');
-loadComponents(['java','c','cpp','python','groovy','ruby', 'javascript']);
+loadComponents(['java','c','cpp','python','groovy','ruby', 'javascript', 'php','go', 'bash']);
 
 
 //Functions
@@ -43,6 +43,14 @@ function get_highlighted_code(code, lang){
 		return Prism.highlight(code, Prism.languages.ruby, lang);
 	}else if(lang == "javascript"){
 		return Prism.highlight(code, Prism.languages.javascript, lang);
+	}
+	else if(lang == "php"){
+		return Prism.highlight(code, Prism.languages.php, lang);
+	}
+	else if(lang == "go"){
+		return Prism.highlight(code, Prism.languages.go, lang);
+	}else if(lang == "curl"){
+		return Prism.highlight(code, Prism.languages.bash, lang);
 	}
 }
 
@@ -84,7 +92,7 @@ app.get('/internal_apis/get_last_updated_time', (req, res) => {
 app.post('/get-api-example', (req, res) => {
 	fs.readFile("./"+req.body.code_url, "utf8", function (err, data) {
 		if (err) throw err;
-	  // console.log(data);
+	//    console.log(data);
       res.status(__HTTP_200__['code']).send(get_highlighted_code(data, req.body.lang))
 	});
 });
@@ -105,7 +113,7 @@ var last_updated_time={"last_update_time": moment().format()};
 fs.writeFileSync(last_updated_time_json_file, JSON.stringify(last_updated_time), 'utf8');
 
 log("green","Running production server...")
-const port = 443
+const port = 18443
 var server = https.createServer(opts, app);
 server.listen(port, function(){
         console.log(`Server is listening on port ${port}!`)
