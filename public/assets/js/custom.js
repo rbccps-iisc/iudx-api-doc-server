@@ -30,7 +30,7 @@ function get_api_method_color(__api_method){
 	}
 }
 
-function display_code(__example_code_url, __title, __lang){
+function display_code(__example_code_url, __title, __lang, __name){
 	$.ajax({
 	  method: "POST",
 	  url: "/get-api-example",
@@ -38,16 +38,17 @@ function display_code(__example_code_url, __title, __lang){
 	  data: JSON.stringify({ code_url: __example_code_url, lang: __lang})
 	})
 	  .done(function( data ) {
-	    $('#code-'+convert_to_html_id(__title)).html(`
+		  console.log(data)
+	    $('#code-'+convert_to_html_id(__title+__name)).html(`
 			<pre class="full-width language-`+ __lang.toLowerCase() +`">`+data+`</pre>
 			`);
 	  });
 }
 
-function get_lang_names(__title, __langs){
+function get_lang_names(__title, __langs, __name){
 	var str=`<div>`
 	for (var i = 0; i < __langs.length; i++) {
-		str+=`<button class="btn btn-primary mg" id="`+i+convert_to_html_id(__title)+`-tab" onclick="display_code('`+ __langs[i]['file'] +`', '`+ __title +`', '`+__langs[i]['lang']+`')">`+__langs[i]['lang']+`</button>`
+		str+=`<button class="btn btn-primary mg" id="`+i+convert_to_html_id(__title+__name)+`-tab" onclick="display_code('`+ __langs[i]['file'] +`', '`+ __title +`', '`+__langs[i]['lang']+`','`+__name+`')">`+__langs[i]['lang']+`</button>`
 	}
 	return str+`</div>`;
 }
@@ -58,18 +59,16 @@ function convert_to_html_id(s){
 		return s.replace(/\/|\.|\s|\(|\)|\<|\>|\{|\}|\,|\"|\'|\`|\*|\;|\+|\!|\#|\%|\^|\&|\=|\₹|\$|\@/g,replace_with)
 }
 
-function get_example_code_section(__title, __example_codes){
+function get_example_code_section(__title, __example_codes, __name){
 
-	var count =0;
-	
 	var _langs = []
 
 	for (var i = 0; i < __example_codes.length; i++) {
 		_langs.push(__example_codes[i]['example'])
 	}
 	return ``
-        +	get_lang_names(__title, _langs)
-        +	`<pre id="code-`+ convert_to_html_id(__title) +`"></pre>
+        +	get_lang_names(__title, _langs, __name)
+        +	`<pre id="code-`+ convert_to_html_id(__title+__name) +`"></pre>
       `;
 }
 
@@ -168,7 +167,7 @@ function get_api_desc_html(__index, __name, __title, __method, __endpoint, __des
             </div>
             <div class="code-block">
                 <h6>Code example:</h6>
-                `+ get_example_code_section(__title,__example_codes) +`
+                `+ get_example_code_section(__title,__example_codes, __name) +`
             </div><!--//code-block-->
         </div><!--//section-block-->`
 }
@@ -247,7 +246,7 @@ function populate_html_contents(iudx_entity){
 	$('title').html('IUDX ' + iudx_entity.toUpperCase() + ' API Doc');
 	get_last_updated_time();
 	$.get('/internal_apis/get_yaml/'+iudx_entity,function(data){
-		// console.log(data)
+		//  console.log(data)
 		
 		$('#doc-title').html(data['title']);
 		populate_html_with_normal_items(data["categories"])

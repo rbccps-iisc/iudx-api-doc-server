@@ -10,7 +10,7 @@ const app = express()
 
 var pemtools = require('pemtools')
 const opts = { key: fs.readFileSync('./cert/key.pem')
-             , cert: fs.readFileSync('./cert/server.pem')
+             , cert: fs.readFileSync('./cert/server.pem'), passphrase: 'password'
              // , requestCert: true
              // , rejectUnauthorized: false
              // , ca: [ fs.readFileSync('./cert/ca.crt') ]
@@ -19,7 +19,7 @@ const opts = { key: fs.readFileSync('./cert/key.pem')
 // https://prismjs.com/
 const prism = require('prismjs');
 const loadComponents = require('prismjs/components/');
-loadComponents(['java','c','cpp','python','groovy','ruby', 'javascript']);
+loadComponents(['java','c','cpp','python','groovy','ruby', 'javascript', 'php','go', 'bash']);
 
 
 //Functions
@@ -43,6 +43,14 @@ function get_highlighted_code(code, lang){
 		return Prism.highlight(code, Prism.languages.ruby, lang);
 	}else if(lang == "javascript"){
 		return Prism.highlight(code, Prism.languages.javascript, lang);
+	}
+	else if(lang == "php"){
+		return Prism.highlight(code, Prism.languages.php, lang);
+	}
+	else if(lang == "go"){
+		return Prism.highlight(code, Prism.languages.go, lang);
+	}else if(lang == "curl"){
+		return Prism.highlight(code, Prism.languages.bash, lang);
 	}
 }
 
