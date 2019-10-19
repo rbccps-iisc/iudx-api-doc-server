@@ -93,30 +93,33 @@ function get_type(__parameter_type){
 }
 
 function get_parameter_table(__parameters){
-	var str = `<div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Key</th>
-                                                    <th>Value</th>
-                                                    <th>Description</th>
-                                                    <th>Required</th>
-                                                    <th>Type</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>`
+	if (__parameters == undefined || __parameters == null || __parameters.length == 0) {
+		return ``;
+	}else{
+		var str = `<div class="table-responsive">
+	                                        <table class="table table-bordered">
+	                                            <thead>
+	                                                <tr>
+	                                                    <th>Key</th>
+	                                                    <th>Value</th>
+	                                                    <th>Description</th>
+	                                                    <th>Required</th>
+	                                                    <th>Type</th>
+	                                                </tr>
+	                                            </thead>
+	                                            <tbody>`
 
-    for (var i =0; i < __parameters.length; i++){
-    	str+=`<tr>
-    	<th scope="row">`+__parameters[i]['parameter']['key']+`</th>
-    	<th scope="row">`+__parameters[i]['parameter']['value']+`</th>
-    	<td>`+__parameters[i]['parameter']['desc']+`</td>`+`</th>
-    	<td>`+get_button(__parameters[i]['parameter']['optional'])+`</td>`+`</th>
-    	<td>`+get_type(__parameters[i]['parameter']['type'])+`</td></tr>`
-    }
+	    for (var i =0; i < __parameters.length; i++){
+	    	str+=`<tr>
+	    	<th scope="row">`+__parameters[i]['parameter']['key']+`</th>
+	    	<th scope="row">`+__parameters[i]['parameter']['value']+`</th>
+	    	<td>`+__parameters[i]['parameter']['desc']+`</td>`+`</th>
+	    	<td>`+get_button(__parameters[i]['parameter']['optional'])+`</td>`+`</th>
+	    	<td>`+get_type(__parameters[i]['parameter']['type'])+`</td></tr>`
+	    }
 
-
-	return str+`</tbody></table></div>`
+		return str+`</tbody></table></div>`
+	}
 }
 
 function get_response_table(__response_codes){
