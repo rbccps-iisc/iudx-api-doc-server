@@ -2,17 +2,55 @@ title: "FAQs"
 categories:
   - category:
       name: "Welcome"
+      desc: "Welcome to the FAQ section for IUDX API Doc."
+  - category:
+      name: "Catalogue"
       QAs:
         - QA:
-            Q: "Q1"
+            Q: "Q1?"
+            A: "A1"
+            tag: "new"
+        - QA:
+            Q: "Q2?"
+            A: "A2"
+        - QA:
+            Q: "Q3?"
+            A: "A3"
+        - QA:
+            Q: "Q4?"
+            A: "A4"
+      desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
+  - category:
+      name: "Auth"
+      QAs:
+        - QA:
+            Q: "Q1?"
+            A: "A1"
+            tag: "new"
+        - QA:
+            Q: "Q2?"
+            A: "A2"
+        - QA:
+            Q: "Q3?"
+            A: "A3"
+            tag: "new"
+        - QA:
+            Q: "Q4?"
+            A: "A4"
+      desc: "Welcome to the FAQ section for IUDX Auth APIs."
+  - category:
+      name: "Resource Server"
+      QAs:
+        - QA:
+            Q: "Q1?"
             A: "A1"
         - QA:
-            Q: "Q1"
-            A: "A1"
+            Q: "Q2?"
+            A: "A2"
         - QA:
-            Q: "Q1"
-            A: "A1"
+            Q: "Q3?"
+            A: "A3"
         - QA:
-            Q: "Q1"
-            A: "A1"
-      desc: "These are the APIs for Authentication, Authorization, and Accounting (AAA) in IUDX."
+            Q: "Q4?"
+            A: "A4"
+      desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
