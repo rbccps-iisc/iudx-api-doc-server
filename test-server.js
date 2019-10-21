@@ -77,6 +77,10 @@ app.get('/', (req, res) => {
     res.status(__HTTP_200__['code']).sendFile('public/home.html', {root: __dirname })
 })
 
+app.get('/faq', (req, res) => {
+    res.status(__HTTP_200__['code']).sendFile('public/faq.html', {root: __dirname })
+})
+
 app.get('/:iudxEntity', (req, res) => {
 	if(IUDX_ENTITIES.includes(req.params.iudxEntity)){
 		res.status(__HTTP_200__['code']).render(__dirname + "/views/index.html", {iudx_entity:req.params.iudxEntity})
