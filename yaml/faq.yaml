@@ -1,0 +1,56 @@
+title: "FAQs"
+categories:
+  - category:
+      name: "Welcome"
+      desc: "Welcome to the FAQ section for IUDX API Doc."
+  - category:
+      name: "Catalogue"
+      desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
+      QAs:
+        - QA:
+            Q: "Q1?"
+            A: "A1"
+            tag: "new"
+        - QA:
+            Q: "Q2?"
+            A: "A2"
+        - QA:
+            Q: "Q3?"
+            A: "A3"
+        - QA:
+            Q: "Q4?"
+            A: "A4"
+  - category:
+      name: "Auth"
+      desc: "Welcome to the FAQ section for IUDX Auth APIs."
+      QAs:
+        - QA:
+            Q: "Q1?"
+            A: "A1"
+            tag: "new"
+        - QA:
+            Q: "Q2?"
+            A: "A2"
+        - QA:
+            Q: "Q3?"
+            A: "A3"
+            tag: "new"
+        - QA:
+            Q: "Q4?"
+            A: "A4"
+  - category:
+      name: "Resource Server"
+      desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
+      QAs:
+        - QA:
+            Q: "Q1?"
+            A: "A1"
+        - QA:
+            Q: "Q2?"
+            A: "A2"
+        - QA:
+            Q: "Q3?"
+            A: "A3"
+        - QA:
+            Q: "Q4?"
+            A: "A4"
