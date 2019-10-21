@@ -1,0 +1,1596 @@
+title: "Resource Server API-Doc"
+categories:
+  - category:
+      name: "IUDX Resource Server Interface"
+      desc: "The resource server provides data access through search, count, subscription APIs. The APIs for these functionalities can be constructed using the following sub-modules.  <br> <ul> <li>Resource Server ID</li> <li>Resource Group ID</li> <li>Verbs, Queries and Filters</li> </ul> Authentication and Authorization for the resource server interface is through the use of IUDX tokens issued by the IUDX Authorization Server. All the APIs of the resource server interface accept the IUDX auth token using the auth-token header. If a token is not provided then the APIs operate only on publicly available data sets or service-offerings. However, when a token is supplied, the resource server interface discerns the scope of the token after contacting the IUDX auth server and performs operations on all those resources instead of only restricting the operation to public resources."
+  - category:
+      name: "Base URL"
+      desc: "The base URL precedes all API endpoints and verbs. It consists of the interface name followed by the API version. The resource server interface has the following base URL <br> <br> <table class='table table-bordered'><tr><td >Protocol</td><td>HTTPs</td></tr><tr><td >IP (or) DN</td><td>localhost</td></tr><tr><td >Port</td><td>8443</td></tr><tr><td >resource-server-id</td><td>pscdcl</td></tr><tr><td >Version</td><td>v1</td></tr><tr><td >Base-URL</td><td>https://{ip:port}/resource-server/{resource-server-id}/{version}</td></tr><tr><td >Example</td><td><h5><a href='https://localhost:8443/resource-server/pscdcl/v1'>https://localhost:8443/resource-server/pscdcl/v1</a><h5></td></tr></table> "
+      
+api-categories: 
+  - category: 
+     name: "Search"
+     desc: "A search operation allows querying of archive data of a resource or a group of resources in a resource-group based on temporal, spatial and quantitative parameters."
+     apis:
+        - api:
+            title: "Temporal - (During a time period)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "start-time/end-time"
+                  desc: "Specifies the start-time and end-time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "during"
+                  desc: "Requests all data during that time period."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/temporal_during.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/temporal_during.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/temporal_during.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/temporal_during.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/temporal_during"
+        - api:
+            title: "Temporal - (Before a time period)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "time"
+                  desc: "Specifies the time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "before"
+                  desc: "Requests all data before that time period."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/temporal_before.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/temporal_before.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/temporal_before.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/temporal_before.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/temporal_before"
+
+        - api:
+            title: "Temporal - (After a time period)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "time"
+                  desc: "Specifies the time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "after"
+                  desc: "Requests all data after that time period."
+                  type: "body"	
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/temporal_after.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/temporal_after.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/temporal_after.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/temporal_after.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/temporal_after"
+
+
+        - api:
+            title: "Temporal - (At that time instance)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "time"
+                  desc: "Specifies the time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "TEquals"
+                  desc: "Requests all data at that time instance (TEquals)."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/temporal_at.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/temporal_at.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/temporal_at.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/temporal_at.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/temporal_at"
+
+
+        - api:
+            title: "Spatial - (Circle)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "body"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "body"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/spatial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/spatial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+
+        - api:
+            title: "Spatial - (Polygon)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "geometry"
+                  value: "polygon(p1,p2,p3,p4,p1)"
+                  desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/spatial_polygon.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/spatial_polygon.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_polygon.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_polygon.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_polygon"
+
+              
+
+        - api:
+            title: "Spatial - (Bounding Box)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "bbox"
+                  value: "x1,y1,x2,y2"
+                  desc: "A bounding box is expressed to be used as a spatial predicate."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/spatial_bounding_box.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/spatial_bounding_box.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_bounding_box.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_bounding_box.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_bounding_box"
+
+
+        - api:
+            title: "Attribute"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "operator"
+                  desc: "Specifies the comparison operation that needs to be applied. <br> Can be one of <br> <ul> <li>PropertyIsEqualTo </li>  <li>PropertyIsNotEqualTo </li> <li>PropertyIsLessThan</li> <li>PropertyIsGreaterThan</li> <li>PropertyIsLessThanOrEqualTo</li> <li>PropertyIsGreaterThanOrEqualTo</li> <li>PropertyIsLike</li> <li>PropertyIsBetween</li></ul>"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute"
+
+
+        - api:
+            title: "Latest Data"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Gets the latest data for a resource in a resource-group."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/latest_Data.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/latest_Data.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/latest_Data.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/latest_Data.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/latest_Data"
+
+
+
+        - api:
+            title: "Status"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "options"
+                  value: "status"
+                  desc: "A status operation will provide applications with the status of resources in a resource-group."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/status.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/status.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/status.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/status.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/status"
+
+
+        - api:
+            title: "Response Filter"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/response_filter.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/response_filter.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/response_filter.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/response_filter.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/response_filter"
+
+
+
+
+  - category: 
+     name: "Count"
+     desc: "A count operation provides a count for the search. Except attribute-filter, all search functionalities are applicable in the count end-point."
+     apis:
+        - api:
+            title: "Temporal - (During a time period)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A temporal count query allows users to count the numner of occurance of a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "start-time/end-time"
+                  desc: "Specifies the start-time and end-time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "during"
+                  desc: "Requests all data during that time period."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/temporal_during.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/temporal_during.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/temporal_during.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/temporal_during.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/temporal_during"
+
+        - api:
+            title: "Temporal - (Before a time period)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A temporal count query allows users to count the numner of occurance of a resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "time"
+                  desc: "Specifies the time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "before"
+                  desc: "Requests all data before that time period."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/temporal_before.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/temporal_before.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/temporal_before.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/temporal_before.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/temporal_before"
+
+
+        - api:
+            title: "Temporal - (After a time period)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A temporal count query allows users to count the numner of occurance of a resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "time"
+                  desc: "Specifies the time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "after"
+                  desc: "Requests all data after that time period."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/temporal_after.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/temporal_after.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/temporal_after.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/temporal_after.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/temporal_after"
+
+
+
+        - api:
+            title: "Temporal - (At that time instance)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation"
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "time"
+                  desc: "Specifies the time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "TEquals"
+                  desc: "Requests all data at that time instance."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/temporal_at.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/temporal_at.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/temporal_at.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/temporal_at.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/temporal_at"
+
+
+
+        - api:
+            title: "Spatial - (Circle)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A geo count allows one to count the number of data available within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "body"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "body"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/spatial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/spatial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/spatial_circle"
+
+
+
+        - api:
+            title: "Spatial - (Polygon)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A geo count allows one to count the number of data available within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "geometry"
+                  value: "polygon(p1,p2,p3,p4,p1)"
+                  desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/spatial_polygon.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/spatial_polygon.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/spatial_polygon.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/spatial_polygon.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/spatial_polygon"
+
+
+        - api:
+            title: "Spatial - (Bounding Box)"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "A geo count allows one to count the number of data available within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "bbox"
+                  value: "x1,y1,x2,y2"
+                  desc: "A bounding box is expressed to be used as a spatial predicate."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/spatial_bounding_box.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/spatial_bounding_box.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/spatial_bounding_box.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/spatial_bounding_box.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/spatial_bounding_box"
+
+
+        - api:
+            title: "Attribute"
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "operator"
+                  desc: "Specifies the comparison operation that needs to be applied. <br> Can be one of <br> <ul> <li>PropertyIsEqualTo </li>  <li>PropertyIsNotEqualTo </li> <li>PropertyIsLessThan</li> <li>PropertyIsGreaterThan</li> <li>PropertyIsLessThanOrEqualTo</li> <li>PropertyIsGreaterThanOrEqualTo</li> <li>PropertyIsLike</li> <li>PropertyIsBetween</li></ul>"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute"
+
+
+  - category: 
+     name: "Subscription"
+     desc: "A subscription operation allows applications to register, update and deregister interest for data access as a stream or as a callback. A subscription must have either a duration or a limit, where duration is the subscription period (in number of days) and limit specifies the total number of messages subscribed."
+     apis:
+        - api:
+            title: "Create Subscription Stream"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions"
+            method: "POST"
+            api-desc: "Registers a subscription request for resources through an HTTP callback. The requestor is expected to provide the HTTP endpoint in the request-body for posting the callback."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "type"
+                  value: "callback"
+                  desc: "some item"
+                  type: "body"
+
+              - parameter:
+                  key: "duration"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Update Subscription Stream"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions/{subscription-id}"
+            method: "PUT"
+            api-desc: "Updates a subscription request where the request shall contain a single resource or a group of resources in a resource-group."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "duration"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Delete Subscription Stream"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions/{subscription-id}"
+            method: "DELETE"
+            api-desc: "Deletes a subscription request."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 204
+                  desc: "No Content"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Get Subscription Stream information"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions/{subscription-id}"
+            method: "GET"
+            api-desc: "Retrieve the list of resources subscribed from a resource-server."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "No Content"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Create Callback"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions"
+            method: "POST"
+            api-desc: "Registers a subscription request for resources through an HTTP callback. The requestor is expected to provide the HTTP endpoint in the request-body for posting the callback."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "type"
+                  value: "callback"
+                  desc: "some item"
+                  type: "body"
+
+              - parameter:
+                  key: "duration"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+              - parameter:
+                  key: "callback_URL"
+                  value: "HTTP or HTTPS URL"
+                  desc: "some item"
+                  type: "body"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Update Callback"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions/{subscription-id}"
+            method: "PUT"
+            api-desc: "Updates a subscription request where the request shall contain a single resource or a group of resources in a resource-group."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "subscription-id"
+                  value: "subscription id provided by resource-server"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "duration"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+              - parameter:
+                  key: "callback_URL"
+                  value: "HTTP or HTTPS URL"
+                  desc: "some item"
+                  type: "body"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Delete Callback"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions/{subscription-id}"
+            method: "DELETE"
+            api-desc: "Deletes a subscription request."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "subscription-id"
+                  value: "subscription id provided by resource-server"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 204
+                  desc: "No Content"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+        - api:
+            title: "Get Callback information"
+            endpoint: "/resource-server/{resource-server-id}/v1/subscriptions/{subscription-id}"
+            method: "GET"
+            api-desc: "Retrieve the list of resources subscribed from a resource-server."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "subscription-id"
+                  value: "subscription id provided by resource-server"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "No Content"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+  - category: 
+     name: "Media"
+     desc: "Media APIs enable data access from resource servers capable of serving media content. It is expected that that underlying resource-server is capable of streaming various multimedia contents, e.g., video, audio or any other multimedia content etc, to the consuming applications."
+     apis:
+        - api:
+            title: "Play Live Stream"
+            endpoint: "/resource-server/{resource-server-id}/v1/media"
+            method: "POST"
+            api-desc: "The requestor will be provided with a ‘streaming URL’ to access a live feed. The stream can be accessed by making a subsequent media streaming call, e.g., from a client viewer app, to the provided link."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "type"
+                  value: "live"
+                  desc: "some item"
+                  type: "body"
+
+              - parameter:
+                  key: "duration"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+
+        - api:
+            title: "Play Archive Stream"
+            endpoint: "/resource-server/{resource-server-id}/v1/media"
+            method: "POST"
+            api-desc: " The requester will be provided with a streaming URL for an archived feed, to which a media streaming call shall be made."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "type"
+                  value: "archive"
+                  desc: "some item"
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "stream"
+                  desc: "some item"
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "TRelation"
+                  value: "One of <ul><li>During</li><li>Before</li><li>After</li><li>Equals</li></ul>"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+
+        - api:
+            title: "Download Archive Stream"
+            endpoint: "/resource-server/{resource-server-id}/v1/media"
+            method: "POST"
+            api-desc: "The requestor will be provided with a download URL for an archived feed, to which a media download call shall be made."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "type"
+                  value: "archive"
+                  desc: "some item"
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "download"
+                  desc: "some item"
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: value"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "TRelation"
+                  value: "One of <ul><li>During</li><li>Before</li><li>After</li><li>Equals</li></ul>"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+
+  - category: 
+     name: "Download"
+     desc: "Download end-point allows applications to download a file."
+     apis:
+        - api:
+            title: "Download File"
+            endpoint: "/resource-server/{resource-server-id}/v1/download/{version}/{resource-id}"
+            method: "POST"
+            api-desc: "Downloads a version of a file from the resource server."
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "version"
+                  value: "Version of the file to be downloaded"
+                  desc: "Version of the file in the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "resource-id"
+                  value: "id"
+                  desc: "id of the file to be downloaded as per catalogue."
+                  type: "path"
+              - parameter:
+                  key: "type"
+                  value: "download"
+                  desc: "some item"
+                  type: "body"
+
+              - parameter:
+                  key: "duration"
+                  value: "value"
+                  desc: "desc"
+                  type: "body"
+
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "some item"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 201
+                  desc: "Created"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/search.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/spatial_circle"
+
+
+
+

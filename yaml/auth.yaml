@@ -1,0 +1,348 @@
+title: "Auth Server API-Doc"
+categories:
+  - category:
+      name: "Welcome"
+      desc: "These are the APIs for Authentication, Authorization, and Accounting (AAA) in IUDX."
+api-categories: 
+  - category: 
+     name: "Policy"
+     desc: "Following APIs are used to manage access control policies for  a provider."
+     apis:
+        - api:
+            title: "Set Policy"
+            endpoint: "/auth/v1/acl/set"
+            method: "POST"
+            api-desc: "This API is used to set access control policies.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/acl-set.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "policy"
+                  value: "string"
+                  desc: "acl policy in aperture policy language"
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If the policy has been successfully set"
+              - response:
+                  code: 400
+                  desc: "If the policy contains syntax errors"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/policy/set-policy.sh"
+        - api:
+            title: "Append Policy"
+            endpoint: "/auth/v1/acl/append"
+            method: "POST"
+            api-desc: "This API is used to append access control rules to existing rules.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/acl-append.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "policy"
+                  value: "string"
+                  desc: "acl policy in aperture policy language"
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If the policy has been successfully appended"
+              - response:
+                  code: 400
+                  desc: "If the policy contains syntax errors"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/policy/append-policy.sh"
+        - api:
+            title: "Get Policy"
+            endpoint: "/auth/v1/acl"
+            method: "GET"
+            api-desc: "This API is used to get previously set access control policies. (No Parameters required).<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/acl.txt' target='_blank'>Click here</a> for more details."
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If the policy has been successfully retrieved"
+              - response:
+                  code: 400
+                  desc: "If no policies have been set yet"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/policy/get-policy.sh"
+  - category: 
+     name: "Token"
+     desc: "Following APIs are used to request and manage access tokens."
+     apis:
+        - api:
+            title: "Get Token"
+            endpoint: "/auth/v1/token"
+            method: "POST"
+            api-desc: "This API is used to request an access token from the auth server. <br>This token can be used to get data from a resource server. <br>Called by: A data consumer with a valid class-2 or above certificate. <br><a href='http://auth.iudx.org.in/token.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "request"
+                  value: "dictionary"
+                  desc: "<a href='http://auth.iudx.org.in/token.txt' target='_blank'>Click here</a> for for info"
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "token-time"
+                  value: "number"
+                  desc: "the time in seconds, till which the token should be valid"
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "existing-token"
+                  value: "string"
+                  desc: "a valid token a consumer already has"
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If the policy has been successfully set"
+              - response:
+                  code: 400
+                  desc: "If the policy contains syntax errors"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/token/get-token.sh"
+        - api:
+            title: "Validate Token"
+            endpoint: "/auth/v1/introspect"
+            method: "POST"
+            api-desc: "This API is used to validate an access token provided by a consumer. <br>Called by: A \"resource server\" with a valid class-1 certificate. <br><a href='http://auth.iudx.org.in/introspect.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "token"
+                  value: "string"
+                  desc: "token presented by the consumer"
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "server-token"
+                  value: "string"
+                  desc: "server token presented by the consumer"
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If the token is valid"
+              - response:
+                  code: 403
+                  desc: "If the token is invalid/expired"
+              - response:
+                  code: 429
+                  desc: "If the resource-server makes too many requests"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/token/validate-token.sh"
+        - api:
+            title: "Audit Token"
+            endpoint: "/auth/v1/audit/tokens"
+            method: "POST"
+            api-desc: "This API allows a consumer or resource-owner to audit their tokens.<br>Called by: A user with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/audit-tokens.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "hours"
+                  value: "number"
+                  desc: "number of hours for which the audit-report has to be generated"
+                  optional: false
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If audit report has been successfully fetched"
+              - response:
+                  code: 403
+                  desc: "If the certificate class is < 3"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/token/audit-token.sh"
+        - api:
+            title: "Revoke Token"
+            endpoint: "/auth/v1/revoke"
+            method: "POST"
+            api-desc: "This API is used to revoke a valid access token.<br> Called by: A user with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/revoke.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "tokens"
+                  value: "string"
+                  desc: "list of tokens to be revoked"
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "token-hashes"
+                  value: "string"
+                  desc: "list of token-hashes to be revoked"
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If token has been successfully revoked"
+              - response:
+                  code: 403
+                  desc: "If token is invalid"
+              - response:
+                  code: 429
+                  desc: "If the user makes too many requests"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/token/revoke-token.sh"
+  - category: 
+     name: "Group"
+     desc: "Following APIs are used to manage groups."
+     apis:
+        - api:
+            title: "Add a consumer to a group"
+            endpoint: "/auth/v1/group/add"
+            method: "POST"
+            api-desc: "This API is used to add a consumer to a group.<br><br>Groups are useful in setting access control polcies where access to a resources is given to a group of consumers. This is done using the \"consumer-in-group(group-name)\" function in aperture policy when using the \"/acl/set\" API.<br><br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='http://auth.iudx.org.in/group-add.txt' target='_blank'>Click here</a> for more details."
+            parameters:
+              - parameter:
+                  key: "group"
+                  value: "string"
+                  desc: "a valid group name created by the user. <b>Note:</b> If the \"group\" doesn't exist, it will be created automatically."
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "valid-till"
+                  value: "number"
+                  desc: "how long (in seconds) the consumer should be in the group"
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "existing-token"
+                  value: "string"
+                  desc: "a valid token a consumer already has"
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If consumer is added to the corresponding group successfully"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/group/group-add"
+        - api:
+            title: "Delete a consumer from a group"
+            endpoint: "/auth/v1/group/delete"
+            method: "POST"
+            api-desc: "This API is used to delete a consumer from a group.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='http://auth.iudx.org.in/group-delete.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "group"
+                  value: "string"
+                  desc: "a valid group name created by the user. <b>Note:</b> If the value of consumer is \"*\", then the group itself will be deleted."
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "consumer"
+                  value: "string"
+                  desc: "the consumer's email-id, which is to be deleted from the group"
+                  optional: false
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If consumer is deleted from the corresponding group successfully"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/group/group-delete.sh"
+        - api:
+            title: "List current consumers in a group"
+            endpoint: "/auth/v1/group/list"
+            method: "POST"
+            api-desc: "This API is used to get the members of a group.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='http://auth.iudx.org.in/group-list.txt' target='_blank'>Click here</a> for more details."
+            parameters: 
+              - parameter:
+                  key: "group"
+                  value: "string"
+                  desc: "a valid group name created by the user. <b>Note:</b> If the \"group\" parameter is not provided, it will give list of all groups."
+                  optional: true
+                  type: "body"
+              - parameter:
+                  key: "content-type"
+                  value: "application/json"
+                  desc: "Header describing request body"
+                  optional: false
+                  type: "header"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "If the list has been retrieved successfully"
+            tutorial-link: ""
+            examples:
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/auth/group/group-list.sh"
