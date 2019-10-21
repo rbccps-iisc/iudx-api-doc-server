@@ -30,6 +30,17 @@ function get_api_method_color(__api_method){
 	}
 }
 
+function copyToClipboard(__id) { 
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val($("#sub-code-"+__id).text()).select();
+	// $("#copied_"+element_id).html("Token copied!")
+	document.execCommand("copy");
+	$temp.remove();
+	alert("copied")
+} 
+
+
 function display_code(__example_code_url, __title, __lang, __name){
 	$.ajax({
 	  method: "POST",
@@ -38,17 +49,15 @@ function display_code(__example_code_url, __title, __lang, __name){
 	  data: JSON.stringify({ code_url: __example_code_url, lang: __lang})
 	})
 	  .done(function( data ) {
-		  console.log(data)
 	    $('#code-'+convert_to_html_id(__title+__name)).html(`
-			<pre class="full-width language-`+ __lang.toLowerCase() +`">`+data+`</pre>
-			`);
+			<input id="copy-code-btn-`+ convert_to_html_id(__title + __name) +`" style="float:right" type="button" value="Copy" onclick="copyToClipboard('`+convert_to_html_id(__title + __name)+`')"><pre  id="sub-code-`+ convert_to_html_id(__title+__name) +`" class="full-width language-`+ __lang.toLowerCase() +`">`+data+`</pre>`);
 	  });
 }
 
 function get_lang_names(__title, __langs, __name){
 	var str=`<div>`
 	for (var i = 0; i < __langs.length; i++) {
-		str+=`<button class="btn btn-primary mg" id="`+i+convert_to_html_id(__title+__name)+`-tab" onclick="display_code('`+ __langs[i]['file'] +`', '`+ __title +`', '`+__langs[i]['lang']+`','`+__name+`')">`+__langs[i]['lang']+`</button>`
+		str+=`<button class="btn btn-primary mg" id="`+i+convert_to_html_id((__title+__name) + __langs[i])+`-tab" onclick="display_code('`+ __langs[i]['file'] +`', '`+ __title +`', '`+__langs[i]['lang']+`','`+__name+`')">`+__langs[i]['lang']+`</button>`
 	}
 	return str+`</div>`;
 }
