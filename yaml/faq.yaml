@@ -5,6 +5,7 @@ categories:
       desc: "Welcome to the FAQ section for IUDX API Doc."
   - category:
       name: "Catalogue"
+      desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
       QAs:
         - QA:
             Q: "Q1?"
@@ -19,9 +20,9 @@ categories:
         - QA:
             Q: "Q4?"
             A: "A4"
-      desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
   - category:
       name: "Auth"
+      desc: "Welcome to the FAQ section for IUDX Auth APIs."
       QAs:
         - QA:
             Q: "Q1?"
@@ -37,9 +38,9 @@ categories:
         - QA:
             Q: "Q4?"
             A: "A4"
-      desc: "Welcome to the FAQ section for IUDX Auth APIs."
   - category:
       name: "Resource Server"
+      desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
       QAs:
         - QA:
             Q: "Q1?"
@@ -53,4 +54,3 @@ categories:
         - QA:
             Q: "Q4?"
             A: "A4"
-      desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
