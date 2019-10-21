@@ -92,11 +92,15 @@ function get_type(__parameter_type){
 	}
 }
 
-function get_parameter_table(__parameters){
+function get_request_content_type_parameter_html(__req_CT){
+	return `<b style="color:#ff7f50">Parameters</b> <!--| ContentType: <code>`+__req_CT+`</code> --><br><br>`
+}
+
+function get_parameter_table(__parameters,__req_CT){
 	if (__parameters == undefined || __parameters == null || __parameters.length == 0) {
 		return ``;
 	}else{
-		var str = `<div class="table-responsive">
+		var str = get_request_content_type_parameter_html(__req_CT)+`<div class="table-responsive">
 	                                        <table class="table table-bordered">
 	                                            <thead>
 	                                                <tr>
@@ -157,8 +161,7 @@ function get_api_desc_html(__index, __name, __title, __method, __endpoint, __des
                 <code>`+__endpoint+`</code>
             </span><!--//code-block-->
             <br><br>
-            <b style="color:#ff7f50">Parameters</b> <!--| ContentType: <code>`+__req_CT+`</code> --><br><br>
-            `+ get_parameter_table(__parameters) +`
+            `+ get_parameter_table(__parameters,__req_CT) +`
             <br><b style="color: #1abc9c">Responses</b> | ContentType: <code>`+__res_CT+`</code><br><br>
             `+ get_response_table(__response_codes) +`
             <div class="section-block">
