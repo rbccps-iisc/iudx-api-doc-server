@@ -1,0 +1,18 @@
+title: "FAQs"
+categories:
+  - category:
+      name: "Welcome"
+      QAs:
+        - QA:
+            Q: "Q1"
+            A: "A1"
+        - QA:
+            Q: "Q1"
+            A: "A1"
+        - QA:
+            Q: "Q1"
+            A: "A1"
+        - QA:
+            Q: "Q1"
+            A: "A1"
+      desc: "These are the APIs for Authentication, Authorization, and Accounting (AAA) in IUDX."
