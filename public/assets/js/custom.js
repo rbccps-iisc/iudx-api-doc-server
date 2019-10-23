@@ -31,13 +31,21 @@ function get_api_method_color(__api_method){
 }
 
 function copyToClipboard(__id) { 
-	var $temp = $("<input>");
+	var $temp = $("<textarea>");
 	$("body").append($temp);
 	$temp.val($("#sub-code-"+__id).text()).select();
-	// $("#copied_"+element_id).html("Token copied!")
+	// $(".copy-btn").html("Copy")
+	// $("#copy-code-btn-"+__id).html("Code copied!")
+	// Swal.fire('Code copied!')
+	Swal.fire({
+	  position: 'center',
+	  type: 'success',
+	  title: 'Code copied!',
+	  showConfirmButton: false,
+	  timer: 1250
+	})
 	document.execCommand("copy");
 	$temp.remove();
-	alert("copied")
 } 
 
 
@@ -50,7 +58,7 @@ function display_code(__example_code_url, __title, __lang, __name){
 	})
 	  .done(function( data ) {
 	    $('#code-'+convert_to_html_id(__title+__name)).html(`
-			<input id="copy-code-btn-`+ convert_to_html_id(__title + __name) +`" style="float:right" type="button" value="Copy" onclick="copyToClipboard('`+convert_to_html_id(__title + __name)+`')"><pre  id="sub-code-`+ convert_to_html_id(__title+__name) +`" class="full-width language-`+ __lang.toLowerCase() +`">`+data+`</pre>`);
+			<button id="copy-code-btn-`+ convert_to_html_id(__title + __name) +`" class="btn copy-btn" style="float:right;color:white;margin-bottom:5px;" onclick="copyToClipboard('`+convert_to_html_id(__title + __name)+`')">Copy</button><pre  id="sub-code-`+ convert_to_html_id(__title+__name) +`" class="full-width language-`+ __lang.toLowerCase() +`">`+data+`</pre>`);
 	  });
 }
 
