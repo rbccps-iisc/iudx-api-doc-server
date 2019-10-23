@@ -358,7 +358,7 @@ api-categories:
 
 
         - api:
-            title: "Attribute"
+            title: "Attribute - PropertyIsEqualTo "
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
             api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
@@ -381,8 +381,13 @@ api-categories:
                   type: "body"
               - parameter:
                   key: "comparison-operator"
-                  value: "operator"
-                  desc: "Specifies the comparison operation that needs to be applied. <br> Can be one of <br> <ul> <li>PropertyIsEqualTo </li>  <li>PropertyIsNotEqualTo </li> <li>PropertyIsLessThan</li> <li>PropertyIsGreaterThan</li> <li>PropertyIsLessThanOrEqualTo</li> <li>PropertyIsGreaterThanOrEqualTo</li> <li>PropertyIsLike</li> <li>PropertyIsBetween</li></ul>"
+                  value: "PropertyIsEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
                   type: "body"
             response-content-type: "application/json"
             responses: 
@@ -395,20 +400,421 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/rs/search/java/attribute.java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsEqualTo.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/rs/search/js/attribute.js"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsEqualTo.js"
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/attribute.py"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsEqualTo.py"
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/attribute.go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsEqualTo.go"
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/attribute"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsEqualTo"
 
+        - api:
+            title: "Attribute - PropertyIsNotEqualTo "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsNotEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsNotEqualTo.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsNotEqualTo.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsNotEqualTo.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsNotEqualTo.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsNotEqualTo"
+
+        - api:
+            title: "Attribute - PropertyIsLessThan "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsLessThan"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsLessThan.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsLessThan.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsLessThan.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsLessThan.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsLessThan"
+                  
+        - api:
+            title: "Attribute - PropertyIsGreaterThan "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsGreaterThan"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsGreaterThan.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsGreaterThan.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsGreaterThan.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsGreaterThan.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsGreaterThan"           
+        - api:
+            title: "Attribute - PropertyIsLessThanOrEqualTo "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsLesThanOrEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsLessThanOrEqualTo.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsLessThanOrEqualTo.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsLessThanOrEqualTo.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsLessThanOrEqualTo.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsLessThanOrEqualTo"
+                  
+                  
+
+
+        - api:
+            title: "Attribute - PropertyIsGreaterThanOrEqualTo "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsGreaterThanOrEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsGreaterThanOrEqualTo.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsGreaterThanOrEqualTo.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsGreaterThanOrEqualTo.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsGreaterThanOrEqualTo.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsGreaterThanOrEqualTo"         
+                  
+        - api:
+            title: "Attribute - PropertyIsLike "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsLike"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsLike.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsLike.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsLike.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsLike.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsLike"
+                  
+        - api:
+            title: "Attribute - PropertyIsBetween "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsBetween"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/attribute_PropertyIsBetween.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/attribute_PropertyIsBetween.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/attribute_PropertyIsBetween.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/attribute_PropertyIsBetween.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/attribute_PropertyIsBetween"          
+          
 
         - api:
             title: "Latest Data"
@@ -896,7 +1302,7 @@ api-categories:
 
 
         - api:
-            title: "Attribute"
+            title: "Attribute - PropertyIsEqualTo "
             endpoint: "/resource-server/{resource-server-id}/v1/count"
             method: "POST"
             api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
@@ -919,8 +1325,13 @@ api-categories:
                   type: "body"
               - parameter:
                   key: "comparison-operator"
-                  value: "operator"
-                  desc: "Specifies the comparison operation that needs to be applied. <br> Can be one of <br> <ul> <li>PropertyIsEqualTo </li>  <li>PropertyIsNotEqualTo </li> <li>PropertyIsLessThan</li> <li>PropertyIsGreaterThan</li> <li>PropertyIsLessThanOrEqualTo</li> <li>PropertyIsGreaterThanOrEqualTo</li> <li>PropertyIsLike</li> <li>PropertyIsBetween</li></ul>"
+                  value: "PropertyIsEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
                   type: "body"
             response-content-type: "application/json"
             responses: 
@@ -933,20 +1344,420 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/rs/count/java/attribute.java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsEqualTo.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/rs/count/js/attribute.js"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsEqualTo.js"
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/count/python/attribute.py"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsEqualTo.py"
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/count/Go/attribute.go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsEqualTo.go"
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/count/curl/attribute"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsEqualTo"
 
+        - api:
+            title: "Attribute - PropertyIsNotEqualTo "
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsNotEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsNotEqualTo.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsNotEqualTo.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsNotEqualTo.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsNotEqualTo.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsNotEqualTo"
+
+        - api:
+            title: "Attribute - PropertyIsLessThan "
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsLessThan"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsLessThan.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsLessThan.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsLessThan.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsLessThan.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsLessThan"
+                  
+        - api:
+            title: "Attribute - PropertyIsGreaterThan "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsGreaterThan"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsGreaterThan.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsGreaterThan.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsGreaterThan.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsGreaterThan.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsGreaterThan"           
+        - api:
+            title: "Attribute - PropertyIsLessThanOrEqualTo "
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsLesThanOrEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsLessThanOrEqualTo.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsLessThanOrEqualTo.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsLessThanOrEqualTo.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsLessThanOrEqualTo.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsLessThanOrEqualTo"
+                  
+                  
+
+
+        - api:
+            title: "Attribute - PropertyIsGreaterThanOrEqualTo "
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsGreaterThanOrEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsGreaterThanOrEqualTo.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsGreaterThanOrEqualTo.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsGreaterThanOrEqualTo.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsGreaterThanOrEqualTo.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsGreaterThanOrEqualTo"         
+                  
+        - api:
+            title: "Attribute - PropertyIsLike "
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsLike"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsLike.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsLike.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsLike.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsLike.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsLike"
+                  
+        - api:
+            title: "Attribute - PropertyIsBetween "
+            endpoint: "/resource-server/{resource-server-id}/v1/count"
+            method: "POST"
+            api-desc: "Attribute search allows one to query attributes. This helps in restricting the search query to items belonging to a certain criteria. <br>OPERATION - Queries a resource or a group of resources in a resource-group for attribute data as per the operator request. "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsBetween"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Specifies the latest data"
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/count/java/attribute_PropertyIsBetween.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/count/js/attribute_PropertyIsBetween.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/count/python/attribute_PropertyIsBetween.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/count/Go/attribute_PropertyIsBetween.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/count/curl/attribute_PropertyIsBetween"
 
   - category: 
      name: "Subscription"
