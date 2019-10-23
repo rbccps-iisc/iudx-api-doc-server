@@ -117,7 +117,7 @@ var last_updated_time={"last_update_time": moment().format()};
 fs.writeFileSync(last_updated_time_json_file, JSON.stringify(last_updated_time), 'utf8');
 
 log("green","Running production server...")
-const port = 18443
+const port = 443
 var server = https.createServer(opts, app);
 server.listen(port, function(){
         console.log(`Server is listening on port ${port}!`)
