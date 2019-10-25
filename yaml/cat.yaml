@@ -35,10 +35,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/Items/curl/createItem"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/Items/curl/createItem"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/Items/curl/createItem"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/Items/curl/createItem"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/Items/curl/createItem"
         - api:
             title: "Update Item"
             endpoint: "/catalogue/v1/items/{id}"
@@ -67,10 +76,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/Items/curl/updateItem"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/Items/curl/updateItem"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/Items/curl/updateItem"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/Items/curl/updateItem"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/Items/curl/updateItem"
 
         - api:
             title: "Delete Item"
@@ -94,11 +112,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/Items/curl/deleteItem"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
-
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/Items/curl/deleteItem"
         - api:
             title: "Retrieve Item"
             endpoint: "/catalogue/v1/items/{id}"
@@ -121,10 +147,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/Items/curl/deleteItem"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/Items/curl/deleteItem"
 
   - category: 
      name: "Search"
@@ -152,10 +187,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/Items/curl/deleteItem"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/Items/curl/deleteItem"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/Items/curl/deleteItem"
 
         - api:
             title: "List Items of an Item Type"
@@ -179,10 +223,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/list_All_Items_ItemType.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/search/js/list_All_Items_ItemType.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/list_All_Items_ItemType.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/list_All_Items_ItemType.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/list_All_Items_ItemType"
 
 
         - api:
@@ -217,10 +270,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/attribute_search.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/search/js/attribute_search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/attribute_search.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/attribute_search.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/attribute_search"
 
         - api:
             title: "Spatial Search - (Circle)"
@@ -260,10 +322,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/spatial_search_circle.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
+                  file: "api-examples/cat/search/js/spatial_search_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/spatial_search_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/spatial_search_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/spatial_search_circle"
 
 
         - api:
@@ -283,6 +354,11 @@ api-categories:
                   value: "polygon(p1,p2,p3,p4,p1)"
                   desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
                   type: "query"
+              - parameter:
+                  key: "relation"
+                  value: "within"
+                  desc: "Return all documents whose geo_shape field is fully within the query geometry."
+                  type: "query"
             response-content-type: "application/json"
             responses: 
               - response:
@@ -294,10 +370,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/spatial_search_polygon.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
+                  file: "api-examples/cat/search/js/spatial_search_polygon.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/pythonjs/spatial_search_polygon.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/spatial_search_polygon.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/spatial_search_polygon"
 
         - api:
             title: "Spatial Search - (Bounding Box)"
@@ -316,6 +401,11 @@ api-categories:
                   value: "x1,y1,x2,y2"
                   desc: "A bounding box is expressed to be used as a spatial predicate."
                   type: "query"
+              - parameter:
+                  key: "relation"
+                  value: "within"
+                  desc: "Return all documents whose geo_shape field is fully within the query geometry."
+                  type: "query"
             response-content-type: "application/json"
             responses: 
               - response:
@@ -327,17 +417,25 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/spatial_search_bbox.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
-
-
+                  file: "api-examples/cat/search/js/spatial_search_bbox.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/pyhton/spatial_search_bbox.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/spatial_search_bbox.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/spatial_search_bbox"
         - api:
-            title: "Text Search"
+            title: "Spatial Search - (LineString)"
             endpoint: "/catalogue/v1/search"
             method: "GET"
-            api-desc: "A text search query allows one to search through the catalogue items for a given text string."
+            api-desc: "A geo count allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
             parameters: 
               - parameter:
                   key: "item-type"
@@ -345,9 +443,14 @@ api-categories:
                   desc: "List items of a particular item-types available in catalogue."
                   type: "query"
               - parameter:
-                  key: "q"
-                  value: "text to search"
-                  desc: "Can be any free form text query to search the catalogue."
+                  key: "geometry"
+                  value: "linestring(p1,p2)"
+                  desc: "An arbitrary line given two or more points."
+                  type: "query"
+              - parameter:
+                  key: "relation"
+                  value: "intersects"
+                  desc: "Return all documents whose geo_shape field intersects the query geometry."
                   type: "query"
             response-content-type: "application/json"
             responses: 
@@ -360,11 +463,20 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/spatial_search_linestring.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
-
+                  file: "api-examples/cat/search/js/spatial_search_linestring.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/spatial_search_linestring.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/spatial_search_linestring.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/spatial_search_linestring"
+        
         - api:
             title: "Response Filter"
             endpoint: "/catalogue/v1/search"
@@ -393,10 +505,141 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/search/java/responseFilter.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
+                  file: "api-examples/cat/search/js/responseFilter.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/responseFilter.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/responseFilter.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/responseFilter"
+        - api:
+            title: "Attribute Search + Spatial Search - (Circle)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "An attribute search allows applications to perform search on items for an exact match on attributes. Searches the catalogue for the given attribute query. In case the ‘attribute-value’ is an array the query returns all items with ‘attribute-name’ matching ‘ANY’ of the values specified in the ‘attribute-value’ array."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Name of the attribute in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-value"
+                  value: "name"
+                  desc: "Value of the attribute in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/cat/search/java/attribute_search_spatial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/cat/search/js/attribute_search_spatial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/attribute_search_spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/attribute_search_spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/attribute_search_spatial_circle"
+
+        - api:
+            title: "Multi-Attribute Search + Spatial Search - (Circle)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "An attribute search allows applications to perform search on items for an exact match on attributes. Searches the catalogue for the given attribute query. In case the ‘attribute-value’ is an array the query returns all items with ‘attribute-name’ matching ‘ANY’ of the values specified in the ‘attribute-value’ array."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "resourceItem"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-names"
+                  value: "name"
+                  desc: "Name of the attributes in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-values"
+                  value: "name"
+                  desc: "Value of the attributes in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/cat/search/java/multiAttribiute_spatial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/cat/search/js/multiAttribiute_spatial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/search/python/multiAttribiute_spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/search/Go/multiAttribiute_spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/search/curl/multiAttribiute_spatial_circle"
+        
 
   - category: 
      name: "Count"
@@ -424,10 +667,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/count/java/list_All_Items_ItemType.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/count/js/list_All_Items_ItemType.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/list_All_Items_ItemType.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/list_All_Items_ItemType.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/list_All_Items_ItemType"
 
         - api:
             title: "Count using Attribute Search"
@@ -461,10 +713,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/count/java/attribute_search.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/count/js/attribute_search.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/attribute_search.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/attribute_search.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/attribute_search"
 
         - api:
             title: "Count using Spatial Search - (Circle)"
@@ -504,11 +765,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/count/java/spatial_search_circle.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
-
+                  file: "api-examples/cat/count/js/spatial_search_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/spatial_search_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/spatial_search_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/spatial_search_circle"
 
         - api:
             title: "Count using Spatial Search - (Polygon)"
@@ -527,6 +796,11 @@ api-categories:
                   value: "polygon(p1,p2,p3,p4,p1)"
                   desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
                   type: "query"
+              - parameter:
+                  key: "relation"
+                  value: "within"
+                  desc: "Return all documents whose geo_shape field is fully within the query geometry."
+                  type: "query"
             response-content-type: "application/json"
             responses: 
               - response:
@@ -538,10 +812,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/count/java/spatial_search_polygon.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
+                  file: "api-examples/cat/count/js/spatial_search_polygon.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/spatial_search_polygon.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/spatial_search_polygon.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/spatial_search_polygon"
 
         - api:
             title: "Count using Spatial Search - (Bounding Box)"
@@ -560,6 +843,11 @@ api-categories:
                   value: "x1,y1,x2,y2"
                   desc: "A bounding box is expressed to be used as a spatial predicate."
                   type: "query"
+              - parameter:
+                  key: "relation"
+                  value: "within"
+                  desc: "Return all documents whose geo_shape field is fully within the query geometry."
+                  type: "query"
             response-content-type: "application/json"
             responses: 
               - response:
@@ -571,16 +859,25 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/count/java/spatial_search_bbox.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/s/search.js"
-
+                  file: "api-examples/cat/count/js/spatial_search_bbox.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/spatial_search_bbox.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/spatial_search_bbox.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/spatial_search_bbox"
         - api:
-            title: "Text Search"
-            endpoint: "/catalogue/v1/search"
+            title: "Count using Spatial Search - (LineString)"
+            endpoint: "/catalogue/v1/count"
             method: "GET"
-            api-desc: "A count on a text search query allows one to search through the catalogue items for a given text string."
+            api-desc: "A geo count allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
             parameters: 
               - parameter:
                   key: "item-type"
@@ -588,9 +885,14 @@ api-categories:
                   desc: "List items of a particular item-types available in catalogue."
                   type: "query"
               - parameter:
-                  key: "q"
-                  value: "text to search"
-                  desc: "Can be any free form text query to search the catalogue."
+                  key: "geometry"
+                  value: "linestring(p1,p2)"
+                  desc: "An arbitrary line given two or more points."
+                  type: "query"
+              - parameter:
+                  key: "relation"
+                  value: "intersects"
+                  desc: "Return all documents whose geo_shape field intersects the query geometry."
                   type: "query"
             response-content-type: "application/json"
             responses: 
@@ -603,9 +905,142 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: "api-examples/cat/count/java/spatial_search_linestring.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: "api-examples/cat/count/js/spatial_search_linestring.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/spatial_search_linestring.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/spatial_search_linestring.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/spatial_search_linestring"
+        
 
+        - api:
+            title: "Count using Attribute Search + Spatial Search - (Circle)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "An attribute search allows applications to perform search on items for an exact match on attributes. Searches the catalogue for the given attribute query. In case the ‘attribute-value’ is an array the query returns all items with ‘attribute-name’ matching ‘ANY’ of the values specified in the ‘attribute-value’ array."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "One of <ul> <li> resourceItem </li> <li> resourceGroup </li> <li> provider </li> <li> resourceServer </li> </ul>"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Name of the attribute in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-value"
+                  value: "name"
+                  desc: "Value of the attribute in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/cat/count/java/attribute_search_spatial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/cat/count/js/attribute_search_spatial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/attribute_search_spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/attribute_search_spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/attribute_search_spatial_circle"          
+
+        
+
+        - api:
+            title: "Count using Multi-Attribute Search + Spatial Search - (Circle)"
+            endpoint: "/catalogue/v1/search"
+            method: "GET"
+            api-desc: "An attribute search allows applications to perform search on items for an exact match on attributes. Searches the catalogue for the given attribute query. In case the ‘attribute-value’ is an array the query returns all items with ‘attribute-name’ matching ‘ANY’ of the values specified in the ‘attribute-value’ array."
+            parameters: 
+              - parameter:
+                  key: "item-type"
+                  value: "resourceItem"
+                  desc: "List items of a particular item-types available in catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Name of the attributes in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "attribute-value"
+                  value: "name"
+                  desc: "Value of the attributes in the catalogue."
+                  type: "query"
+              - parameter:
+                  key: "lat"
+                  value: "latitude"
+                  desc: "Specifies the latitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "lon"
+                  value: "longitude"
+                  desc: "Specifies the longitude value for the point."
+                  type: "query"
+              - parameter:
+                  key: "radius"
+                  value: "radius"
+                  desc: "Specifies the radius of the query in meters."
+                  type: "query"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/cat/count/java/multiAttribiute_spatial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/cat/count/js/multiAttribiute_spatial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/cat/count/python/multiAttribiute_spatial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/cat/count/Go/multiAttribiute_spatial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/cat/count/curl/multiAttribiute_spatial_circle"
 
