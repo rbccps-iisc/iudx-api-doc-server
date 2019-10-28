@@ -7,6 +7,8 @@ const YAML = require('yaml')
 const fs = require('fs');
 const app = express()
 
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length; 
 
 var pemtools = require('pemtools')
 const opts = { key: fs.readFileSync('key.pem')
@@ -119,6 +121,23 @@ fs.writeFileSync(last_updated_time_json_file, JSON.stringify(last_updated_time),
 log("green","Running production server...")
 const port = 443
 var server = https.createServer(opts, app);
+
+if (cluster.isMaster) {
+
+  // Fork workers.
+  for (var i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+
+} else {
+
 server.listen(port, function(){
-        console.log(`Server is listening on port ${port}!`)
+        log('cyan', `Server is listening on port ${port}!`)
 });
+
+}
+
