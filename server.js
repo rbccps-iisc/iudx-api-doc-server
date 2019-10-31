@@ -96,10 +96,20 @@ app.get('/internal_apis/get_last_updated_time', (req, res) => {
 });
 
 app.post('/get-api-example', (req, res) => {
+	
 	fs.readFile("./"+req.body.code_url, "utf8", function (err, data) {
-		if (err) throw err;
-	//    console.log(data);
-      res.status(__HTTP_200__['code']).send(get_highlighted_code(data, req.body.lang))
+        
+	        if (err){
+
+                        res.status(__HTTP_200__['code']).send("<span style='color:red'>Sorry, No code found. We will be uploading it soon.</span>")
+
+                        }
+		else{
+
+                res.status(__HTTP_200__['code']).send(get_highlighted_code(data, req.body.lang))
+
+		}
+
 	});
 });
 

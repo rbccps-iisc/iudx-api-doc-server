@@ -1,12 +1,12 @@
 import requests
 
-url = "https://pune.iudx.org.in/resource-server/pscdcl/v1/search"
+url = "https://localhost/resource-server/pscdcl/v1/search"
 
-payload = "{\n\t\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/ABC Farm House Junction_4\",\n\t\"options\": \"latest\"\n}"
+payload = "{\n\t\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/changebhai/crowd-sourced-images\",\n\t\"options\": \"latest\"\n}"
 headers = {
-    'Content-Type': "application/json",
-    }
+  'Content-Type': 'application/json'
+}
 
-response = requests.request("POST", url, data=payload, headers=headers)
+response = requests.request("POST", url, headers=headers, data = payload)
 
-print(response.text)
+print(response.text.encode('utf8'))

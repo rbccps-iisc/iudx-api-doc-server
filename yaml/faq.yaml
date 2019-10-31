@@ -1,56 +1,19 @@
 title: "FAQs"
 categories:
   - category:
-      name: "Welcome"
-      desc: "Welcome to the FAQ section for IUDX API Doc."
+      name: "General"
+      desc: "This FAQ section includes questions that are applicable to all the IUDX entities, i.e. CAT, Auth, Resource Server"
   - category:
       name: "Catalogue"
       desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
-      QAs:
-        - QA:
-            Q: "Q1?"
-            A: "A1"
-            tag: "new"
-        - QA:
-            Q: "Q2?"
-            A: "A2"
-        - QA:
-            Q: "Q3?"
-            A: "A3"
-        - QA:
-            Q: "Q4?"
-            A: "A4"
   - category:
       name: "Auth"
       desc: "Welcome to the FAQ section for IUDX Auth APIs."
-      QAs:
-        - QA:
-            Q: "Q1?"
-            A: "A1"
-            tag: "new"
-        - QA:
-            Q: "Q2?"
-            A: "A2"
-        - QA:
-            Q: "Q3?"
-            A: "A3"
-            tag: "new"
-        - QA:
-            Q: "Q4?"
-            A: "A4"
   - category:
       name: "Resource Server"
       desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
       QAs:
         - QA:
-            Q: "Q1?"
-            A: "A1"
-        - QA:
-            Q: "Q2?"
-            A: "A2"
-        - QA:
-            Q: "Q3?"
-            A: "A3"
-        - QA:
-            Q: "Q4?"
-            A: "A4"
+            Q: "What should be the IP and Port for Pune Datathon'20?"
+            A: "IP = https://pune.iudx.org.in. <br>Port is not needed."
+	          tag: "new"
