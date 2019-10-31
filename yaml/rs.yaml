@@ -1047,7 +1047,47 @@ api-categories:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/response_filter_temporal"
 
-
+        - api:
+            title: "Response Filter - (Spatial-Circle)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/response_filter_spacial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/response_filter_spacial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/response_filter_spacial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/response_filter_spacial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/response_filter_spacial_circle"
 
   - category: 
      name: "Count"
