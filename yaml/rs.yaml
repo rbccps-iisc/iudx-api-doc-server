@@ -964,7 +964,7 @@ api-categories:
 
 
         - api:
-            title: "Response Filter"
+            title: "Response Filter - (Latest Data)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
             api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
@@ -991,20 +991,61 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/rs/search/java/response_filter.java"
+                  file: "api-examples/rs/search/java/response_filter_latest.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/rs/search/js/response_filter.js"
+                  file: "api-examples/rs/search/js/response_filter_latest.js"
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/response_filter.py"
+                  file: "api-examples/rs/search/python/response_filter_latest.py"
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/response_filter.go"
+                  file: "api-examples/rs/search/Go/response_filter_latest.go"
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/response_filter"
+                  file: "api-examples/rs/search/curl/response_filter_latest"
 
+        - api:
+            title: "Response Filter - (Temporal)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/response_filter_temporal.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/response_filter_temporal.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/response_filter_temporal.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/response_filter_temporal.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/response_filter_temporal"
 
 
 
