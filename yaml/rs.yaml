@@ -1958,19 +1958,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Update Subscription Stream"
@@ -2004,19 +2004,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Delete Subscription Stream"
@@ -2045,19 +2045,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Get Subscription Stream information"
@@ -2086,19 +2086,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Create Callback"
@@ -2143,19 +2143,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Update Callback"
@@ -2199,19 +2199,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Delete Callback"
@@ -2245,19 +2245,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Get Callback information"
@@ -2291,19 +2291,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
   - category: 
      name: "Media"
@@ -2348,19 +2348,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
         - api:
@@ -2412,19 +2412,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
         - api:
@@ -2476,19 +2476,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
   - category: 
@@ -2544,19 +2544,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
 
