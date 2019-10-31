@@ -12,7 +12,7 @@ func main() {
   url := "https://localhost/resource-server/pscdcl/v1/search"
   method := "POST"
 
-  payload := strings.NewReader("{\n	\"id\" : \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/Ambedkar society circle_29\",\n	\"attribute-name\" : \"LIGHT\",\n	\"attribute-value\": \"300,2200\",\n	\"comparison-operator\": \"propertyisbetween\"\n}")
+  payload := strings.NewReader("{\n	\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/changebhai/crowd-sourced-images\",\n	\"lon\": \"18.56581555\",\n	\"lat\":\"73.77567708\",\n	\"radius\":\"100000\",\n	\"attribute-filter\":[\"image_path\"]\n}")
 
   client := &http.Client {
   }
