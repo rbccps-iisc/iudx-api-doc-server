@@ -1,28 +1,31 @@
 package main
 
 import (
-	"fmt"
-	"strings"
-	"net/http"
-	"io/ioutil"
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
 )
 
 func main() {
 
-	url := "https://pune.iudx.org.in/resource-server/pscdcl/v1/search"
+  url := "https://localhost/resource-server/pscdcl/v1/search"
+  method := "POST"
 
-	payload := strings.NewReader("{\n\t\"id\" : \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/Ambedkar society circle_29\",\n\t\"attribute-name\" : \"CATEGORY\",\n\t\"attribute-value\": \"MODERATE\",\n\t\"comparison-operator\": \"propertyislike\",\n\t\"options\":\"latest\"\n}")
+  payload := strings.NewReader("{\n	\"id\" : \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/Ambedkar society circle_29\",\n	\"attribute-name\" : \"CATEGORY\",\n	\"attribute-value\": \"MODERATE\",\n	\"comparison-operator\": \"propertyislike\"\n}")
 
-	req, _ := http.NewRequest("POST", url, payload)
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
 
-	req.Header.Add("Content-Type", "application/json")
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("Content-Type", "application/json")
 
-	res, _ := http.DefaultClient.Do(req)
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
 
-	defer res.Body.Close()
-	body, _ := ioutil.ReadAll(res.Body)
-
-	fmt.Println(res)
-	fmt.Println(string(body))
-
+  fmt.Println(string(body))
 }

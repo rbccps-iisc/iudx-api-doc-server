@@ -13,6 +13,52 @@ api-categories:
      desc: "A search operation allows querying of archive data of a resource or a group of resources in a resource-group based on temporal, spatial and quantitative parameters."
      apis:
         - api:
+            title: "Latest Data"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A latest operation provides the latest known data of resources in a resource-group.<br>OPERATION   : Gets the latest data for a resource in a resource-group "
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Gets the latest data for a resource in a resource-group."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/latest_Data.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/latest_Data.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/latest_Data.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/latest_Data.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/latest_Data"
+        - api:
             title: "Temporal - (During a time period)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
@@ -869,62 +915,11 @@ api-categories:
               - example:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/attribute_PropertyIsBetween"          
-          
-
-        - api:
-            title: "Latest Data"
-            endpoint: "/resource-server/{resource-server-id}/v1/search"
-            method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
-            
-            parameters: 
-              - parameter:
-                  key: "resource-server-id"
-                  value: "id of resource-server in catalogue"
-                  desc: "Specifies the id of the resource-server."
-                  type: "path"
-              - parameter:
-                  key: "id"
-                  value: "id of resource in catalogue"
-                  desc: "Specifies the id of the resource."
-                  type: "body"
-              - parameter:
-                  key: "options"
-                  value: "latest"
-                  desc: "Gets the latest data for a resource in a resource-group."
-                  type: "body"
-            response-content-type: "application/json"
-            responses: 
-              - response:
-                  code: 200
-                  desc: "Success"
-              - response:
-                  code: 404
-                  desc: "Not found"
-            examples:
-              - example:
-                  lang: "Java"
-                  file: "api-examples/rs/search/java/latest_Data.java"
-              - example:
-                  lang: "Javascript"
-                  file: "api-examples/rs/search/js/latest_Data.js"
-              - example:
-                  lang: "Python"
-                  file: "api-examples/rs/search/python/latest_Data.py"
-              - example:
-                  lang: "Go"
-                  file: "api-examples/rs/search/Go/latest_Data.go"
-              - example:
-                  lang: "Curl"
-                  file: "api-examples/rs/search/curl/latest_Data"
-
-
-
         - api:
             title: "Status"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            api-desc: "A status operation will provide applications with the status of resources in a resource-group.<br>OPERATION  : Gets the status for the resources in a resource-group"
             
             parameters: 
               - parameter:
@@ -969,7 +964,91 @@ api-categories:
 
 
         - api:
-            title: "Response Filter"
+            title: "Response Filter - (Latest Data)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "This API gets the latest data for a resource in a resource-group."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/response_filter_latest_data.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/response_filter_latest_data.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/response_filter_latest_data.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/response_filter_latest_data.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/response_filter_latest_data"
+
+        - api:
+            title: "Response Filter - (Temporal)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/response_filter_temporal.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/response_filter_temporal.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/response_filter_temporal.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/response_filter_temporal.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/response_filter_temporal"
+
+        - api:
+            title: "Response Filter - (Spatial-Circle)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
             api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
@@ -996,22 +1075,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/rs/search/java/response_filter.java"
+                  file: "api-examples/rs/search/java/response_filter_spacial_circle.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/rs/search/js/response_filter.js"
+                  file: "api-examples/rs/search/js/response_filter_spacial_circle.js"
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/response_filter.py"
+                  file: "api-examples/rs/search/python/response_filter_spacial_circle.py"
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/response_filter.go"
+                  file: "api-examples/rs/search/Go/response_filter_spacial_circle.go"
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/response_filter"
-
-
-
+                  file: "api-examples/rs/search/curl/response_filter_spacial_circle"
 
   - category: 
      name: "Count"
@@ -1922,19 +1998,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Update Subscription Stream"
@@ -1968,19 +2044,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Delete Subscription Stream"
@@ -2009,19 +2085,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Get Subscription Stream information"
@@ -2050,19 +2126,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Create Callback"
@@ -2107,19 +2183,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Update Callback"
@@ -2163,19 +2239,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Delete Callback"
@@ -2209,19 +2285,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
         - api:
             title: "Get Callback information"
@@ -2255,19 +2331,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
   - category: 
      name: "Media"
@@ -2312,19 +2388,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
         - api:
@@ -2376,19 +2452,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
         - api:
@@ -2440,19 +2516,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
   - category: 
@@ -2508,19 +2584,19 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/search.java"
+                  file: ""
               - example:
                   lang: "Javascript"
-                  file: "api-examples/search.js"
+                  file: ""
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/spatial_circle.py"
+                  file: ""
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/spatial_circle.go"
+                  file: ""
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/spatial_circle"
+                  file: ""
 
 
 
