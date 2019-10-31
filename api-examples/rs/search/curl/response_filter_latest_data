@@ -1,8 +1,7 @@
 curl --location --request POST 'https://localhost/resource-server/pscdcl/v1/search' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-	"id": "rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/changebhai/crowd-sourced-images",
-	"time": "2019-09-26T06:18:54.717Z",
-	"TRelation": "before",
-	"attribute-filter" : ["image_path"] 
+	"id": "rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/ABC Farm House Junction_4",
+	"options": "latest",
+	"attribute-filter":["CO_MAX","SOUND","STATUS","LASTUPDATEDATETIME"]
 }'

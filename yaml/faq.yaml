@@ -14,6 +14,6 @@ categories:
       desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
       QAs:
         - QA:
-            Q: "What should be the IP and Port for Pune Datathon'20?"
-            A: "IP = https://pune.iudx.org.in. <br>Port is not needed."
+            Q: "What would be the base URL for Pune Datathon'20?"
+            A: "<a href='https://pudx.resourceserver.iudx.org.in/resource-server/pscdcl/v1' target='_blank'> https://pudx.resourceserver.iudx.org.in/resource-server/pscdcl/v1 </a>"
 	          tag: "new"

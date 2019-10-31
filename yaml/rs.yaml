@@ -16,7 +16,7 @@ api-categories:
             title: "Latest Data"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            api-desc: "A latest operation provides the latest known data of resources in a resource-group.<br>OPERATION   : Gets the latest data for a resource in a resource-group "
             
             parameters: 
               - parameter:
@@ -919,7 +919,7 @@ api-categories:
             title: "Status"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            api-desc: "A status operation will provide applications with the status of resources in a resource-group.<br>OPERATION  : Gets the status for the resources in a resource-group"
             
             parameters: 
               - parameter:
@@ -967,7 +967,7 @@ api-categories:
             title: "Response Filter - (Latest Data)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            api-desc: "This API gets the latest data for a resource in a resource-group."
             
             parameters: 
               - parameter:
@@ -991,25 +991,25 @@ api-categories:
             examples:
               - example:
                   lang: "Java"
-                  file: "api-examples/rs/search/java/response_filter_latest.java"
+                  file: "api-examples/rs/search/java/response_filter_latest_data.java"
               - example:
                   lang: "Javascript"
-                  file: "api-examples/rs/search/js/response_filter_latest.js"
+                  file: "api-examples/rs/search/js/response_filter_latest_data.js"
               - example:
                   lang: "Python"
-                  file: "api-examples/rs/search/python/response_filter_latest.py"
+                  file: "api-examples/rs/search/python/response_filter_latest_data.py"
               - example:
                   lang: "Go"
-                  file: "api-examples/rs/search/Go/response_filter_latest.go"
+                  file: "api-examples/rs/search/Go/response_filter_latest_data.go"
               - example:
                   lang: "Curl"
-                  file: "api-examples/rs/search/curl/response_filter_latest"
+                  file: "api-examples/rs/search/curl/response_filter_latest_data"
 
         - api:
             title: "Response Filter - (Temporal)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            api-desc: "A temporal query allows users to search a resource or a group of resources for a given time query. Each query is associated with a relationship which defines the type of temporal query performed. <br> OPERATION - Queries a resource or a group of resources using time, end-time and time-relation."
             
             parameters: 
               - parameter:
@@ -1047,7 +1047,47 @@ api-categories:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/response_filter_temporal"
 
-
+        - api:
+            title: "Response Filter - (Spatial-Circle)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/response_filter_spacial_circle.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/response_filter_spacial_circle.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/response_filter_spacial_circle.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/response_filter_spacial_circle.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/response_filter_spacial_circle"
 
   - category: 
      name: "Count"
