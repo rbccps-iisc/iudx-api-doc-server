@@ -13,6 +13,52 @@ api-categories:
      desc: "A search operation allows querying of archive data of a resource or a group of resources in a resource-group based on temporal, spatial and quantitative parameters."
      apis:
         - api:
+            title: "Latest Data"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "latest"
+                  desc: "Gets the latest data for a resource in a resource-group."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/latest_Data.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/latest_Data.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/latest_Data.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/latest_Data.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/latest_Data"
+        - api:
             title: "Temporal - (During a time period)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
@@ -869,57 +915,6 @@ api-categories:
               - example:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/attribute_PropertyIsBetween"          
-          
-
-        - api:
-            title: "Latest Data"
-            endpoint: "/resource-server/{resource-server-id}/v1/search"
-            method: "POST"
-            api-desc: "A geo search allows one to search through catalogue items within a given geographical boundary. This helps in restricting the search query to items belonging to a certain geo-spatial boundary. The search queries and parameters are as per the KVP encoding for query constraints as per the OGC Catalogue Services 3.0 Specification - HTTP Protocol Binding."
-            
-            parameters: 
-              - parameter:
-                  key: "resource-server-id"
-                  value: "id of resource-server in catalogue"
-                  desc: "Specifies the id of the resource-server."
-                  type: "path"
-              - parameter:
-                  key: "id"
-                  value: "id of resource in catalogue"
-                  desc: "Specifies the id of the resource."
-                  type: "body"
-              - parameter:
-                  key: "options"
-                  value: "latest"
-                  desc: "Gets the latest data for a resource in a resource-group."
-                  type: "body"
-            response-content-type: "application/json"
-            responses: 
-              - response:
-                  code: 200
-                  desc: "Success"
-              - response:
-                  code: 404
-                  desc: "Not found"
-            examples:
-              - example:
-                  lang: "Java"
-                  file: "api-examples/rs/search/java/latest_Data.java"
-              - example:
-                  lang: "Javascript"
-                  file: "api-examples/rs/search/js/latest_Data.js"
-              - example:
-                  lang: "Python"
-                  file: "api-examples/rs/search/python/latest_Data.py"
-              - example:
-                  lang: "Go"
-                  file: "api-examples/rs/search/Go/latest_Data.go"
-              - example:
-                  lang: "Curl"
-                  file: "api-examples/rs/search/curl/latest_Data"
-
-
-
         - api:
             title: "Status"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
