@@ -101,7 +101,7 @@ app.post('/get-api-example', (req, res) => {
         
 	        if (err){
 
-                        res.status(__HTTP_200__['code']).send("<span style='color:red'>Sorry, No code found. We will be uploading it soon.</span>"))
+                        res.status(__HTTP_200__['code']).send("<span style='color:red'>Sorry, No code found. We will be uploading it soon.</span>")
 
                         }
 
