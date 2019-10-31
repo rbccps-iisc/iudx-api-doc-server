@@ -14,5 +14,6 @@ categories:
       desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
       QAs:
         - QA:
-            Q: "What should be the IP and Port for the Pune Datathon?"
-            A: "IP -> https://pune.iudx.org.in. Port is not needed."
+            Q: "What should be the IP and Port for Pune Datathon'20?"
+            A: "IP = https://pune.iudx.org.in. <br>Port is not needed."
+	    tag: "new"
