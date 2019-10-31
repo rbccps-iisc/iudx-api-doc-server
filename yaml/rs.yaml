@@ -230,6 +230,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "lat"
                   value: "latitude"
                   desc: "Specifies the latitude value for the point."
@@ -283,6 +288,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "geometry"
                   value: "polygon(p1,p2,p3,p4,p1)"
                   desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
@@ -327,6 +337,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "bbox"
                   value: "x1,y1,x2,y2"
                   desc: "A bounding box is expressed to be used as a spatial predicate."
@@ -369,6 +384,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -427,6 +447,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -483,6 +508,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -541,6 +571,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -596,6 +631,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -657,6 +697,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -714,6 +759,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -770,6 +820,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -829,6 +884,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "options"
                   value: "latest"
                   desc: "Gets the latest data for a resource in a resource-group."
@@ -872,6 +932,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "options"
                   value: "status"
@@ -1174,6 +1239,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "lat"
                   value: "latitude"
                   desc: "Specifies the latitude value for the point."
@@ -1228,6 +1298,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "geometry"
                   value: "polygon(p1,p2,p3,p4,p1)"
                   desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
@@ -1271,6 +1346,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "bbox"
                   value: "x1,y1,x2,y2"
                   desc: "A bounding box is expressed to be used as a spatial predicate."
@@ -1313,6 +1393,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -1371,6 +1456,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -1427,6 +1517,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -1485,6 +1580,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -1540,6 +1640,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
@@ -1601,6 +1706,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -1658,6 +1768,11 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
                   key: "attribute-name"
                   value: "name"
                   desc: "Specifies the name of the attribute on which the operation should be applied."
@@ -1714,6 +1829,11 @@ api-categories:
                   value: "id of resource-server in catalogue"
                   desc: "Specifies the id of the resource-server."
                   type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
               - parameter:
                   key: "attribute-name"
                   value: "name"
