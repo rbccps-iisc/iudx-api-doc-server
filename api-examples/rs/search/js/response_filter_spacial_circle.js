@@ -1,5 +1,5 @@
 var settings = {
-  "url": "https://localhost/resource-server/pscdcl/v1/search",
+  "url": "https://(resource-server:ip)/resource-server/pscdcl/v1/search",
   "method": "POST",
   "timeout": 0,
   "headers": {
