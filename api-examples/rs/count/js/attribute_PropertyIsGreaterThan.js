@@ -1,5 +1,5 @@
 var settings = {
-  "url": "https://(resource-server:ip)/resource-server/pscdcl/v1/count",
+  "url": "https://<resource-server-ip>/resource-server/pscdcl/v1/count",
   "method": "POST",
   "timeout": 0,
   "headers": {

@@ -9,10 +9,10 @@ import (
 
 func main() {
 
-  url := "https://(resource-server:ip)/resource-server/pscdcl/v1/count"
+  url := "https://<resource-server-ip>/resource-server/pscdcl/v1/count"
   method := "POST"
 
-  payload := strings.NewReader("{\n	\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/aqm-bosch-climo/ABC Farm House Junction_4\",\n	\"time\": \"2019-07-27T00:00:00.000Z\",\n	\"TRelation\": \"before\"\n}")
+  payload := strings.NewReader("{\n	\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/aqm-bosch-climo/ABC Farm House Junction_4\",\n	\"time\": \"2019-11-06T12:33:28.000+05:30\",\n	\"TRelation\": \"before\"\n}")
 
   client := &http.Client {
   }
