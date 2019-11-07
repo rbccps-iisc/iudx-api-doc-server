@@ -1,7 +1,7 @@
-curl --location --request POST 'https://(resource-server:ip)/resource-server/pscdcl/v1/search' \
+curl --location --request POST 'https://<resource-server-ip>/resource-server/pscdcl/v1/search' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 	"id": "rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/aqm-bosch-climo/ABC Farm House Junction_4",
-	"time": "2019-11-03T00:00:00.000Z/2019-11-03T15:00:00.000Z",
+	"time": "2019-11-03T00:00:00.000+05:30/2019-11-03T15:00:00.000+05:30",
 	"TRelation": "during"
 }'
