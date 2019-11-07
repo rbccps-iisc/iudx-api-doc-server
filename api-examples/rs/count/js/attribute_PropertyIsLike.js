@@ -1,8 +1,13 @@
-curl --location --request POST "https://localhost/resource-server/pscdcl/v1/count" \
---header "Content-Type: application/json" \
---data "{
-	\"id\" : \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/Ambedkar society circle_29\",
-	\"attribute-name\" : \"CATEGORY\",
-	\"attribute-value\": \"MODERATE\",
-	\"comparison-operator\": \"propertyislike\"
-}"
+var settings = {
+  "url": "https://(resource-server:ip)/resource-server/pscdcl/v1/count",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "data": "{\n\t\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/aqm-bosch-climo/ABC Farm House Junction_4\",\n\t\"attribute-name\" : \"CATEGORY\",\n\t\"attribute-value\": \"MODERATE\",\n\t\"comparison-operator\": \"propertyislike\"\n}",
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

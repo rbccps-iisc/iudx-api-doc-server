@@ -1,11 +1,11 @@
 var settings = {
-  "url": "https://localhost/resource-server/pscdcl/v1/search",
+  "url": "https://(resource-server:ip)/resource-server/pscdcl/v1/search",
   "method": "POST",
   "timeout": 0,
   "headers": {
     "Content-Type": "application/json"
   },
-  "data": "{\n\t\"id\" : \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pscdcl/aqm-bosch-climo/Ambedkar society circle_29\",\n\t\"attribute-name\" : \"LIGHT\",\n\t\"attribute-value\": \"300,2200\",\n\t\"comparison-operator\": \"propertyisbetween\"\n}",
+  "data": "{\n\t\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/aqm-bosch-climo/ABC Farm House Junction_4\",\n\t\"attribute-name\" : \"LIGHT\",\n\t\"attribute-value\": \"300,2200\",\n\t\"comparison-operator\": \"propertyisbetween\"\n}",
 };
 
 $.ajax(settings).done(function (response) {
