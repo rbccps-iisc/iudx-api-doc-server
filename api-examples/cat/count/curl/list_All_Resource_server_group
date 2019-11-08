@@ -1,0 +1,1 @@
+curl --location --request GET 'https://<catalogue-server-ip>/catalogue/v1/count?item-type=resourceServerGroup'

@@ -1,8 +1,7 @@
-OkHttpClient client = new OkHttpClient();
-
-Request request = new Request.Builder()
-  .url("https://catalogue.iudx.org.in/catalogue/v1/search?attribute-filter=%28tags,id%29")
-  .get()
+OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
-
+Request request = new Request.Builder()
+  .url("https://<catalogue-server-ip>/catalogue/v1/search?attribute-filter=(tags,id)")
+  .method("GET", null)
+  .build();
 Response response = client.newCall(request).execute();

@@ -1,2 +1,1 @@
-curl -X GET \
-  https://catalogue.iudx.org.in/catalogue/v1/search/catalogue/v1/search \
+curl --location --request GET 'https://<catalogue-server-ip>/catalogue/v1/search'

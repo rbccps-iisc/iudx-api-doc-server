@@ -1,9 +1,11 @@
 import requests
 
-url = "https://catalogue.iudx.org.in/catalogue/v1/search/catalogue/v1/count"
+url = "https://<catalogue-server-ip>/catalogue/v1/count"
 
-payload = ""
+payload = {}
+headers= {}
 
-response = requests.request("GET", url, data=payload)
+response = requests.request("GET", url, headers=headers, data = payload)
 
-print(response.text)
+print(response.text.encode('utf8'))
+

@@ -1,0 +1,1 @@
+curl --location --request GET 'https://pudx.catalogue.iudx.org.in/catalogue/v1/search?attribute-name=%28tags,resourceServerGroup%29&attribute-value=%28%28streetlight,flood%29,%28pudx-resource-server/flood-sensor%29%29'

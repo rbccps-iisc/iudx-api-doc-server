@@ -1,11 +1,9 @@
 var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://catalogue.iudx.org.in/catalogue/v1/count?attribute-name=%28tags,provider,resourceServerGroup%29&attribute-value=%28%28streetlight,flood%29,%28pscdcl%29,%28flood-sensor%29%29&lat=12.273737&lon=78.37475&radius=200000",
-    "method": "GET",
-    
-  }
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+  "url": "https://<catalogue-server-ip>/catalogue/v1/count?lat=18.4&lon=73.9&radius=200000&attribute-name=(tags,provider,resourceServerGroup)&attribute-value=((streetlight,flood),(pscdcl),(pudx-resource-server/flood-sensor))",
+  "method": "GET",
+  "timeout": 0,
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

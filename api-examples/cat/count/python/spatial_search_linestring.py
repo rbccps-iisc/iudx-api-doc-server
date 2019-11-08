@@ -1,11 +1,11 @@
 import requests
 
-url = "https://catalogue.iudx.org.in/catalogue/v1/count"
+url = "https://<catalogue-server-ip>/catalogue/v1/count?geometry=linestring(18.56,73.83,18.49,73.8)&relation=intersects"
 
-querystring = {"geometry":"linestring%2818.56,73.83,18.49,73.8%29","relation":"intersects"}
+payload = {}
+headers= {}
 
-payload = ""
+response = requests.request("GET", url, headers=headers, data = payload)
 
-response = requests.request("GET", url, data=payload, params=querystring)
+print(response.text.encode('utf8'))
 
-print(response.text)

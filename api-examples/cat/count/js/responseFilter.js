@@ -1,10 +1,9 @@
 var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://catalogue.iudx.org.in/catalogue/v1/count?attribute-filter=%28tags,id%29",
-    "method": "GET",
-  }
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+  "url": "https://<catalogue-server-ip>/catalogue/v1/count?attribute-filter=(tags,id)",
+  "method": "GET",
+  "timeout": 0,
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

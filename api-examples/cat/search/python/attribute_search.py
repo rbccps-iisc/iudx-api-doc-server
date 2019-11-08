@@ -1,11 +1,11 @@
 import requests
 
-url = "https://catalogue.iudx.org.in/catalogue/v1/search"
+url = "https://<catalogue-server-ip>/catalogue/v1/search?attribute-name=(tags)&attribute-value=((traffic))"
 
-querystring = {"attribute-name":"%28tags%29","attribute-value":"%28traffic%29"}
+payload = {}
+headers= {}
 
-payload = ""
+response = requests.request("GET", url, headers=headers, data = payload)
 
-response = requests.request("GET", url, data=payload, params=querystring)
+print(response.text.encode('utf8'))
 
-print(response.text)

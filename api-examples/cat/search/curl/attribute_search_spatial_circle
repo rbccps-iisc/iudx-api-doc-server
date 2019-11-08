@@ -1,2 +1,1 @@
-curl -X GET \
-  'https://catalogue.iudx.org.in/catalogue/v1/search?attribute-name=%28tags%29&attribute-value=%28traffic%29&lat=12.273737&lon=78.37475&radius=200000' \
+curl --location --request GET 'https://<catalogue-server-ip>/catalogue/v1/search?attribute-name=%28tags%29&attribute-value=%28%28traffic%29%29&lat=12.273737&lon=78.37475&radius=200000'

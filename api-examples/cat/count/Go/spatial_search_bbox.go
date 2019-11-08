@@ -1,23 +1,26 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-	"io/ioutil"
+  "fmt"
+  "net/http"
+  "io/ioutil"
 )
 
 func main() {
 
-	url := "https://catalogue.iudx.org.in/catalogue/v1/count?bbox=18.4,73.9,28.6,80.2&relation=within"
+  url := "https://<catalogue-server-ip>/catalogue/v1/count?bbox=18.4,73.9,28.6,80.2&relation=within"
+  method := "GET"
 
-	req, _ := http.NewRequest("GET", url, nil)
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, nil)
 
-	res, _ := http.DefaultClient.Do(req)
+  if err != nil {
+    fmt.Println(err)
+  }
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
 
-	defer res.Body.Close()
-	body, _ := ioutil.ReadAll(res.Body)
-
-	fmt.Println(res)
-	fmt.Println(string(body))
-
+  fmt.Println(string(body))
 }

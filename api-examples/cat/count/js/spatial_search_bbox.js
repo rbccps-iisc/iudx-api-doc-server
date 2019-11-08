@@ -1,10 +1,9 @@
 var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://catalogue.iudx.org.in/catalogue/v1/count?bbox=18.4,73.9,28.6,80.2&relation=within",
-    "method": "GET",
-  }
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+  "url": "https://<catalogue-server-ip>/catalogue/v1/count?bbox=18.4,73.9,28.6,80.2&relation=within",
+  "method": "GET",
+  "timeout": 0,
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

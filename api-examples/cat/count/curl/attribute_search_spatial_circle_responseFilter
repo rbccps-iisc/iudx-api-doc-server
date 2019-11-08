@@ -1,0 +1,1 @@
+curl --location --request GET 'https://pudx.catalogue.iudx.org.in/catalogue/v1/count?attribute-name=%28tags%29&attribute-value=%28%28pollution%29%29&lat=18.4&lon=73.9&radius=200000&attribute-filter=%28tags,id%29'
