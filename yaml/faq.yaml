@@ -5,10 +5,10 @@ categories:
       desc: "This FAQ section includes questions that are applicable to all the IUDX entities, i.e. CAT, Auth, Resource Server"
   - category:
       name: "Catalogue"
-      desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
+      desc: "Please visit https://pudx.catalogue.iudx.org.in"
   - category:
       name: "Auth"
-      desc: "Welcome to the FAQ section for IUDX Auth APIs."
+      desc: "Please visit http://auth.iudx.org.in"
   - category:
       name: "Resource Server"
       desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
