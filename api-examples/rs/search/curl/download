@@ -1,0 +1,6 @@
+curl --location --request POST 'https://<resource-server-ip>/resource-server/pscdcl/v1/download' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"resourceServerGroup" : "urn:iudx-catalogue-pune:pudx-resource-server/aqm-bosch-climo",
+	"options": "all"
+}'

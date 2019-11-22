@@ -1,9 +1,9 @@
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n\t\"id\": \"rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/changebhai/crowd-sourced-images\",\n\t\"bbox\":\"18.2,73.6,24.2,76.6\"\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n\t\"resourceServerGroup\" : \"urn:iudx-catalogue-pune:pudx-resource-server/aqm-bosch-climo\",\n\t\"options\": \"all\"\n}");
 Request request = new Request.Builder()
-  .url("https://<resource-server-ip>/resource-server/pscdcl/v1/search")
+  .url("https://<resource-server-ip>/resource-server/pscdcl/v1/download")
   .method("POST", body)
   .addHeader("Content-Type", "application/json")
   .build();

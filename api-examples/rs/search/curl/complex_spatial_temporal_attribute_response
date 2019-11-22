@@ -1,0 +1,12 @@
+curl --location --request POST 'https://<resource-server-ip>/resource-server/pscdcl/v1/search' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"id": "rbccps.org/aa9d66a000d94a78895de8d4c0b3a67f3450e531/pudx-resource-server/changebhai/crowd-sourced-images",
+	"geometry":"polygon((18.0,72.0),(20.2,75.3),(23.6,69.1),(23.6,65.5),(19.7,65.5),(18.0,72.0))",
+	"attribute-filter":["image_path"],
+	"time": "2019-11-01T00:00:00+05:30/2019-11-06T00:00:00+05:30",
+	"TRelation": "during",
+	"attribute-name" : "longitude",
+	"attribute-value": "73.760989",
+	"comparison-operator": "propertyisequalto"
+}'
