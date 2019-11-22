@@ -390,7 +390,7 @@ api-categories:
               - parameter:
                   key: "bbox"
                   value: "x1,y1,x2,y2"
-                  desc: "A bounding box is expressed to be used as a spatial predicate."
+                  desc: "A bounding box is expressed to be used as a spatial predicate with (x1,y1) as top-left coordinate and (x2,y2) as bottom-left coordinate."
                   type: "body"
             response-content-type: "application/json"
             responses: 
@@ -1089,6 +1089,186 @@ api-categories:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/response_filter_spacial_circle"
 
+        - api:
+            title: "Download"
+            endpoint: "/resource-server/{resource-server-id}/v1/download"
+            method: "POST"
+            api-desc: ""
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "resource-server-group"
+                  value: "name of the resource server group to which the resource belongs to"
+                  desc: "Specifies the resource server group for which the data is required"
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "all"
+                  desc: ""
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/download.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/download.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/download.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/download.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/download"
+        
+        - api:
+            title: "Complex Queries - (Temporal + Spatial)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: ""
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "geometry"
+                  value: "polygon(p1,p2,p3,p4,p1)"
+                  desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "start-time/end-time"
+                  desc: "Specifies the start-time and end-time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "during"
+                  desc: "Requests all data during that time period."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/complex_spatial_temporal.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/complex_spatial_temporal.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/complex_spatial_temporal.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/complex_spatial_temporal.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/complex_spatial_temporal"
+        
+        - api:
+            title: "Complex Queries - (Spatial + Temporal + Attribute + Response Filter)"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: ""
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "geometry"
+                  value: "polygon(p1,p2,p3,p4,p1)"
+                  desc: "A closed polygon whose first and last point must match, thus requiring n + 1 vertices to create an n-sided polygon and a minimum of 4 vertices."
+                  type: "body"
+              - parameter:
+                  key: "time"
+                  value: "start-time/end-time"
+                  desc: "Specifies the start-time and end-time in ISO 8601 format."
+                  type: "body"
+              - parameter:
+                  key: "TRelation"
+                  value: "during"
+                  desc: "Requests all data during that time period."
+                  type: "body"
+              - parameter:
+                  key: "attribute-name"
+                  value: "name"
+                  desc: "Specifies the name of the attribute on which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-value"
+                  value: "value"
+                  desc: "Specifies the value for the attribute with which the operation should be applied."
+                  type: "body"
+              - parameter:
+                  key: "comparison-operator"
+                  value: "PropertyIsEqualTo"
+                  desc: "Specifies the comparison operation that needs to be applied."
+                  type: "body"
+              - parameter:
+                  key: "attribute-filter"
+                  value: "Array of attributes"
+                  desc: "Restricts the response to contain only the attributes requested."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/complex_spatial_temporal_attribute_response.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/complex_spatial_temporal_attribute_response.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/complex_spatial_temporal_attribute_response.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/complex_spatial_temporal_attribute_response.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/complex_spatial_temporal_attribute_response"
   - category: 
      name: "Count"
      desc: "A count operation provides a count for the search. Except attribute-filter, all search functionalities are applicable in the count end-point."
