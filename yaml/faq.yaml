@@ -5,10 +5,10 @@ categories:
       desc: "This FAQ section includes questions that are applicable to all the IUDX entities, i.e. CAT, Auth, Resource Server"
   - category:
       name: "Catalogue"
-      desc: "Welcome to the FAQ section for IUDX Catalogue API Doc."
+      desc: "Please visit <a href='https://pudx.catalogue.iudx.org.in' target='_blank'>https://pudx.catalogue.iudx.org.in</a>"
   - category:
       name: "Auth"
-      desc: "Welcome to the FAQ section for IUDX Auth APIs."
+      desc: "Please visit <a href='http://auth.iudx.org.in' target='_blank'>http://auth.iudx.org.in</a>"
   - category:
       name: "Resource Server"
       desc: "Welcome to the FAQ section for IUDX Resource Server APIs."
@@ -16,4 +16,4 @@ categories:
         - QA:
             Q: "What would be the base URL for Pune Datathon'20?"
             A: "<a href='https://pudx.resourceserver.iudx.org.in/resource-server/pscdcl/v1' target='_blank'> https://pudx.resourceserver.iudx.org.in/resource-server/pscdcl/v1 </a>"
-	          tag: "new"
+	    tag: "new"
