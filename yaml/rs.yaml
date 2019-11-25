@@ -1140,7 +1140,7 @@ api-categories:
             title: "Complex Queries - (Temporal + Spatial)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: ""
+            api-desc: "An example complex query, which combines search on temporal and spatial APIs of IUDX"
             
             parameters: 
               - parameter:
@@ -1197,7 +1197,7 @@ api-categories:
             title: "Complex Queries - (Spatial + Temporal + Attribute + Response Filter)"
             endpoint: "/resource-server/{resource-server-id}/v1/search"
             method: "POST"
-            api-desc: ""
+            api-desc: "An example complex query, which combines search on temporal, spatial, attribute APIs of IUDX"
             
             parameters: 
               - parameter:
