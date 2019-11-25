@@ -915,53 +915,6 @@ api-categories:
               - example:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/attribute_PropertyIsBetween"          
-        - api:
-            title: "Status"
-            endpoint: "/resource-server/{resource-server-id}/v1/search"
-            method: "POST"
-            api-desc: "A status operation will provide applications with the status of resources in a resource-group.<br>OPERATION  : Gets the status for the resources in a resource-group"
-            
-            parameters: 
-              - parameter:
-                  key: "resource-server-id"
-                  value: "id of resource-server in catalogue"
-                  desc: "Specifies the id of the resource-server."
-                  type: "path"
-              - parameter:
-                  key: "id"
-                  value: "id of resource in catalogue"
-                  desc: "Specifies the id of the resource."
-                  type: "body"
-              - parameter:
-                  key: "options"
-                  value: "status"
-                  desc: "A status operation will provide applications with the status of resources in a resource-group."
-                  type: "body"
-            response-content-type: "application/json"
-            responses: 
-              - response:
-                  code: 200
-                  desc: "Success"
-              - response:
-                  code: 404
-                  desc: "Not found"
-            examples:
-              - example:
-                  lang: "Java"
-                  file: "api-examples/rs/search/java/status.java"
-              - example:
-                  lang: "Javascript"
-                  file: "api-examples/rs/search/js/status.js"
-              - example:
-                  lang: "Python"
-                  file: "api-examples/rs/search/python/status.py"
-              - example:
-                  lang: "Go"
-                  file: "api-examples/rs/search/Go/status.go"
-              - example:
-                  lang: "Curl"
-                  file: "api-examples/rs/search/curl/status"
-
 
         - api:
             title: "Response Filter - (Latest Data)"
@@ -1088,53 +1041,6 @@ api-categories:
               - example:
                   lang: "Curl"
                   file: "api-examples/rs/search/curl/response_filter_spacial_circle"
-
-        - api:
-            title: "Download"
-            endpoint: "/resource-server/{resource-server-id}/v1/download"
-            method: "POST"
-            api-desc: ""
-            
-            parameters: 
-              - parameter:
-                  key: "resource-server-id"
-                  value: "id of resource-server in catalogue"
-                  desc: "Specifies the id of the resource-server."
-                  type: "path"
-              - parameter:
-                  key: "resource-server-group"
-                  value: "name of the resource server group to which the resource belongs to"
-                  desc: "Specifies the resource server group for which the data is required"
-                  type: "body"
-              - parameter:
-                  key: "options"
-                  value: "all"
-                  desc: ""
-                  type: "body"
-            response-content-type: "application/json"
-            responses: 
-              - response:
-                  code: 200
-                  desc: "Success"
-              - response:
-                  code: 404
-                  desc: "Not found"
-            examples:
-              - example:
-                  lang: "Java"
-                  file: "api-examples/rs/search/java/download.java"
-              - example:
-                  lang: "Javascript"
-                  file: "api-examples/rs/search/js/download.js"
-              - example:
-                  lang: "Python"
-                  file: "api-examples/rs/search/python/download.py"
-              - example:
-                  lang: "Go"
-                  file: "api-examples/rs/search/Go/download.go"
-              - example:
-                  lang: "Curl"
-                  file: "api-examples/rs/search/curl/download"
         
         - api:
             title: "Complex Queries - (Temporal + Spatial)"
@@ -2709,17 +2615,18 @@ api-categories:
               - example:
                   lang: "Curl"
                   file: ""
-
-
+  
+  
   - category: 
      name: "Download"
      desc: "Download end-point allows applications to download a file."
      apis:
         - api:
-            title: "Download File"
-            endpoint: "/resource-server/{resource-server-id}/v1/download/{version}/{resource-id}"
+            title: "Download"
+            endpoint: "/resource-server/{resource-server-id}/v1/download"
             method: "POST"
-            api-desc: "Downloads a version of a file from the resource server."
+            api-desc: ""
+            
             parameters: 
               - parameter:
                   key: "resource-server-id"
@@ -2727,57 +2634,87 @@ api-categories:
                   desc: "Specifies the id of the resource-server."
                   type: "path"
               - parameter:
-                  key: "version"
-                  value: "Version of the file to be downloaded"
-                  desc: "Version of the file in the resource-server."
-                  type: "path"
-              - parameter:
-                  key: "resource-id"
-                  value: "id"
-                  desc: "id of the file to be downloaded as per catalogue."
-                  type: "path"
-              - parameter:
-                  key: "type"
-                  value: "download"
-                  desc: "some item"
+                  key: "resource-server-group"
+                  value: "name of the resource server group to which the resource belongs to"
+                  desc: "Specifies the resource server group for which the data is required"
                   type: "body"
-
               - parameter:
-                  key: "duration"
-                  value: "value"
-                  desc: "desc"
-                  type: "body"
-
-              - parameter:
-                  key: "id"
-                  value: "id of resource in catalogue"
-                  desc: "some item"
+                  key: "options"
+                  value: "all"
+                  desc: ""
                   type: "body"
             response-content-type: "application/json"
             responses: 
               - response:
-                  code: 201
-                  desc: "Created"
+                  code: 200
+                  desc: "Success"
               - response:
                   code: 404
                   desc: "Not found"
             examples:
               - example:
                   lang: "Java"
-                  file: ""
+                  file: "api-examples/rs/search/java/download.java"
               - example:
                   lang: "Javascript"
-                  file: ""
+                  file: "api-examples/rs/search/js/download.js"
               - example:
                   lang: "Python"
-                  file: ""
+                  file: "api-examples/rs/search/python/download.py"
               - example:
                   lang: "Go"
-                  file: ""
+                  file: "api-examples/rs/search/Go/download.go"
               - example:
                   lang: "Curl"
-                  file: ""
+                  file: "api-examples/rs/search/curl/download"
 
-
-
-
+  - category: 
+     name: "Status"
+     desc: "Status end-point allows applications to find the status of the device."
+     apis:
+        - api:
+            title: "Status"
+            endpoint: "/resource-server/{resource-server-id}/v1/search"
+            method: "POST"
+            api-desc: "A status operation will provide applications with the status of resources in a resource-group.<br>OPERATION  : Gets the status for the resources in a resource-group"
+            
+            parameters: 
+              - parameter:
+                  key: "resource-server-id"
+                  value: "id of resource-server in catalogue"
+                  desc: "Specifies the id of the resource-server."
+                  type: "path"
+              - parameter:
+                  key: "id"
+                  value: "id of resource in catalogue"
+                  desc: "Specifies the id of the resource."
+                  type: "body"
+              - parameter:
+                  key: "options"
+                  value: "status"
+                  desc: "A status operation will provide applications with the status of resources in a resource-group."
+                  type: "body"
+            response-content-type: "application/json"
+            responses: 
+              - response:
+                  code: 200
+                  desc: "Success"
+              - response:
+                  code: 404
+                  desc: "Not found"
+            examples:
+              - example:
+                  lang: "Java"
+                  file: "api-examples/rs/search/java/status.java"
+              - example:
+                  lang: "Javascript"
+                  file: "api-examples/rs/search/js/status.js"
+              - example:
+                  lang: "Python"
+                  file: "api-examples/rs/search/python/status.py"
+              - example:
+                  lang: "Go"
+                  file: "api-examples/rs/search/Go/status.go"
+              - example:
+                  lang: "Curl"
+                  file: "api-examples/rs/search/curl/status"
