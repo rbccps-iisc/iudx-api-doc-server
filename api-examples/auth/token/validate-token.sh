@@ -1,4 +1,4 @@
-curl -XPOST https://auth.iudx.org.in/auth/v1/introspect	\
+curl -XPOST https://auth.iudx.org.in/auth/v1/token/introspect	\
 
 	--cert rs-certificate.key --key rs-private.key	\
 

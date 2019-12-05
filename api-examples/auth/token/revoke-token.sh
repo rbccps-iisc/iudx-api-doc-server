@@ -1,4 +1,4 @@
-curl -XPOST https://auth.iudx.org.in/auth/v1/revoke		\
+curl -XPOST https://auth.iudx.org.in/auth/v1/token/revoke		\
 
 --cert certificate.pem --key private-key.pem			\
 
