@@ -137,9 +137,9 @@ api-categories:
                   file: "api-examples/auth/token/get-token.sh"
         - api:
             title: "Validate Token"
-            endpoint: "/auth/v1/introspect"
+            endpoint: "/auth/v1/token/introspect"
             method: "POST"
-            api-desc: "This API is used to validate an access token provided by a consumer. <br>Called by: A \"resource server\" with a valid class-1 certificate. <br><a href='http://auth.iudx.org.in/introspect.txt' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to validate an access token provided by a consumer. <br>Called by: A \"resource server\" with a valid class-1 certificate. <br><a href='http://auth.iudx.org.in/token/introspect/help' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "token"
@@ -202,9 +202,9 @@ api-categories:
                   file: "api-examples/auth/token/audit-token.sh"
         - api:
             title: "Revoke Token"
-            endpoint: "/auth/v1/revoke"
+            endpoint: "/auth/v1/token/revoke"
             method: "POST"
-            api-desc: "This API is used to revoke a valid access token.<br> Called by: A user with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/revoke.txt' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to revoke a valid access token.<br> Called by: A user with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/token/revoke/help' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "tokens"
