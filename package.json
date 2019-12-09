@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/rbccps-iisc/iudx-api-doc-server#readme",
   "dependencies": {
+    "macaddress":"^0.2.9",
+    "cryptiles":"^4.1.2",
+    "randomatic":"^3.0.0",
     "extend":"^3.0.2",
     "stringstream":"^0.0.6",
     "mem":"^4.0.0",
