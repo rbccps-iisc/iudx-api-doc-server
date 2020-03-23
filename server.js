@@ -45,11 +45,9 @@ function get_highlighted_code(code, lang){
 		return Prism.highlight(code, Prism.languages.ruby, lang);
 	}else if(lang == "javascript"){
 		return Prism.highlight(code, Prism.languages.javascript, lang);
-	}
-	else if(lang == "php"){
+	}else if(lang == "php"){
 		return Prism.highlight(code, Prism.languages.php, lang);
-	}
-	else if(lang == "go"){
+	}else if(lang == "go"){
 		return Prism.highlight(code, Prism.languages.go, lang);
 	}else if(lang == "curl"){
 		return Prism.highlight(code, Prism.languages.bash, lang);
