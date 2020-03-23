@@ -2,7 +2,7 @@ title: "Auth Server API-Doc"
 categories:
   - category:
       name: "Welcome"
-      desc: "These are the APIs for Authentication, Authorization, and Accounting (AAA) in IUDX."
+      desc: "These are the APIs for Authentication, Authorization, and Accounting (AAA) in IUDX. Please visit <a href='http://auth.iudx.org.in/' target='_blank'>auth.iudx.org.in</a> for more information."
 api-categories: 
   - category: 
      name: "Policy"
@@ -12,7 +12,7 @@ api-categories:
             title: "Set Policy"
             endpoint: "/auth/v1/acl/set"
             method: "POST"
-            api-desc: "This API is used to set access control policies.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='https://auth.iudx.org.in/auth/v1/acl/set/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to set access control policies.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/acl-set.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "policy"
@@ -43,7 +43,7 @@ api-categories:
             title: "Append Policy"
             endpoint: "/auth/v1/acl/append"
             method: "POST"
-            api-desc: "This API is used to append access control rules to existing rules.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='https://auth.iudx.org.in/auth/v1/acl/append/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to append access control rules to existing rules.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/acl-append.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "policy"
@@ -74,7 +74,7 @@ api-categories:
             title: "Get Policy"
             endpoint: "/auth/v1/acl"
             method: "GET"
-            api-desc: "This API is used to get previously set access control policies. (No Parameters required).<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='https://auth.iudx.org.in/auth/v1/acl/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to get previously set access control policies. (No Parameters required).<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/acl.txt' target='_blank'>Click here</a> for more details."
             response-content-type: "application/json"
             responses: 
               - response:
@@ -96,12 +96,12 @@ api-categories:
             title: "Get Token"
             endpoint: "/auth/v1/token"
             method: "POST"
-            api-desc: "This API is used to request an access token from the auth server. <br>This token can be used to get data from a resource server. <br>Called by: A data consumer with a valid class-2 or above certificate. <br><a href='https://auth.iudx.org.in/auth/v1/token/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to request an access token from the auth server. <br>This token can be used to get data from a resource server. <br>Called by: A data consumer with a valid class-2 or above certificate. <br><a href='http://auth.iudx.org.in/token.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "request"
                   value: "dictionary"
-                  desc: "<a href='https://auth.iudx.org.in/auth/v1/token/help' target='_blank'>Click here</a> for for info"
+                  desc: "<a href='http://auth.iudx.org.in/token.txt' target='_blank'>Click here</a> for for info"
                   optional: false
                   type: "body"
               - parameter:
@@ -139,7 +139,7 @@ api-categories:
             title: "Validate Token"
             endpoint: "/auth/v1/token/introspect"
             method: "POST"
-            api-desc: "This API is used to validate an access token provided by a consumer. <br>Called by: A \"resource server\" with a valid class-1 certificate. <br><a href='https://auth.iudx.org.in/auth/v1/token/introspect/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to validate an access token provided by a consumer. <br>Called by: A \"resource server\" with a valid class-1 certificate. <br><a href='http://auth.iudx.org.in/token-introspect.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "token"
@@ -179,7 +179,7 @@ api-categories:
             title: "Audit Token"
             endpoint: "/auth/v1/audit/tokens"
             method: "POST"
-            api-desc: "This API allows a consumer or resource-owner to audit their tokens.<br>Called by: A user with a valid class-3 or above certificate. <br><a href='https://auth.iudx.org.in/auth/v1/audit/tokens/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API allows a consumer or resource-owner to audit their tokens.<br>Called by: A user with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/audit-tokens.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "hours"
@@ -204,7 +204,7 @@ api-categories:
             title: "Revoke Token"
             endpoint: "/auth/v1/token/revoke"
             method: "POST"
-            api-desc: "This API is used to revoke a valid access token.<br> Called by: A user with a valid class-3 or above certificate. <br><a href='https://auth.iudx.org.in/auth/v1/token/revoke/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to revoke a valid access token.<br> Called by: A user with a valid class-3 or above certificate. <br><a href='http://auth.iudx.org.in/token-revoke.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "tokens"
@@ -248,7 +248,7 @@ api-categories:
             title: "Add a consumer to a group"
             endpoint: "/auth/v1/group/add"
             method: "POST"
-            api-desc: "This API is used to add a consumer to a group.<br><br>Groups are useful in setting access control polcies where access to a resources is given to a group of consumers. This is done using the \"consumer-in-group(group-name)\" function in aperture policy when using the \"/acl/set\" API.<br><br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='https://auth.iudx.org.in/auth/v1/group/add/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to add a consumer to a group.<br><br>Groups are useful in setting access control policies where access to a resources is given to a group of consumers. This is done using the \"consumer-in-group(group-name)\" function in aperture policy when using the \"/acl/set\" API.<br><br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='http://auth.iudx.org.in/group-add.txt' target='_blank'>Click here</a> for more details."
             parameters:
               - parameter:
                   key: "group"
@@ -288,7 +288,7 @@ api-categories:
             title: "Delete a consumer from a group"
             endpoint: "/auth/v1/group/delete"
             method: "POST"
-            api-desc: "This API is used to delete a consumer from a group.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='https://auth.iudx.org.in/auth/v1/group/delete/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to delete a consumer from a group.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='http://auth.iudx.org.in/group-delete.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "group"
@@ -322,7 +322,7 @@ api-categories:
             title: "List current consumers in a group"
             endpoint: "/auth/v1/group/list"
             method: "POST"
-            api-desc: "This API is used to get the members of a group.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='https://auth.iudx.org.in/auth/v1/group/list/help' target='_blank'>Click here</a> for more details."
+            api-desc: "This API is used to get the members of a group.<br>Called by: A resource-owner with a valid class-3 or above certificate. <br><br><a href='http://auth.iudx.org.in/group-list.txt' target='_blank'>Click here</a> for more details."
             parameters: 
               - parameter:
                   key: "group"
