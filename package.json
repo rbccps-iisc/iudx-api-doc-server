@@ -44,7 +44,7 @@
     "prismjs": "^1.17.1",
     "randomatic": "^3.0.0",
     "serialize-javascript": "^2.1.1",
-    "set-value": "^2.0.1",
+    "set-value": "^4.0.1",
     "stringstream": "^0.0.6",
     "underscore.string": "^3.3.5",
     "yaml": "^1.6.0"
